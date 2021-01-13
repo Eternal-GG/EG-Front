@@ -1,11 +1,13 @@
 import React from 'react';
-import './components/App.scss'
+import {Route} from 'react-router-dom';
+import MainPage from "./pages/MainPage";
+import styles from './App.module.scss';
 
 function App() {
+    const {App} = styles;
   return (
-    <div className="App">
-        "hello World!"
-        <button>Button</button>
+    <div className={App}>
+        <Route path="/" exact component={MainPage} />
     </div>
   );
 }
