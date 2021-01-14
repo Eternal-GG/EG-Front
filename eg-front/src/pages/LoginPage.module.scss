@@ -1,0 +1,90 @@
+body {
+  background: #f8f9fa;
+}
+
+.LoginBox{
+  width: 300px;
+  height: 300px;
+
+  position: relative;
+  background: white;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
+
+  margin: 0 auto;
+
+  margin-top: 250px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 40px 40px 40px;
+
+  h1{
+    font-family: "넥슨Lv1고딕 Bold";
+    text-align: center;
+  }
+
+  .TextBox{
+    width: 100%;
+    font-size: 15px;
+    padding: 8px 0px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: solid #ffd144;
+    border-width: 0px 0px 2px 0px;
+  }
+
+  .RemainBox{
+    margin: 0 auto;
+
+    margin-top: 2px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    span{
+      color: gray;
+      font-size: 14px;
+    }
+  }
+
+  button{
+    background: #ffd144;
+    width: 100%;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 6px;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    vertical-align: middle;
+    &:hover {
+      background: #565656;
+    }
+  }
+
+  .TextButton {
+    margin-top: 20px;
+    color: gray;
+
+    span{
+      color: gray;
+      border: solid gray;
+      border-width: 0px 0px 1px 0px;
+      font-size: 14px;
+
+      &:first-child{
+        float: left;
+      }
+
+      &:last-child{
+        float: right;
+      }
+    }
+
+    span + span{
+      margin-left: 10px;
+    }
+
+  }
+}

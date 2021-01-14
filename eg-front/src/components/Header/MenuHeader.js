@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import styles from './MenuHeader.module.scss';
 
 function MenuHeader() {
@@ -9,7 +10,7 @@ function MenuHeader() {
                   <li>자유 게시판</li>
                   <li>랭커 통계</li>
                 </ul>
-                <button>로그인</button>
+                <Link to='/login'><button>로그인</button></Link>
             </div>
     );
 }
