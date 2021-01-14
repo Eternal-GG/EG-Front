@@ -27,7 +27,6 @@
     margin-top: 8px;
     border: solid #ffd144;
     border-width: 3px 0px 3px 3px;
-    outline-style: none; /* 포커스시 발생하는 효과 제거를 원한다면 */
     vertical-align: middle;
   }
 
@@ -42,7 +41,7 @@
     border: none;
     outline-style: none;
     vertical-align: middle;
-    cursor: pointer;
+
     &:hover {
       background: #565656;
     }
