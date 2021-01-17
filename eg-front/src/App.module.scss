@@ -1,6 +1,8 @@
 :global{
   body{
     font-family: 나눔스퀘어;
+    margin: 0;
+    padding: 0;
 
     button{
       cursor: pointer;
@@ -13,4 +15,4 @@
   }
 }
 
-// 공용
+// 공용, reset css 포함

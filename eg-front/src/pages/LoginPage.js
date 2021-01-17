@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './LoginPage.module.scss'
+import {Link} from "react-router-dom";
 
 function LoginPage() {
     const {LoginBox, TextBox, RemainBox, TextButton} = styles;
@@ -15,8 +16,8 @@ function LoginPage() {
                     </div>
                     <button type='submit'>로그인 하기</button>
                 <div className={TextButton}>
-                    <span>회원가입하기</span>
-                    <span>비밀번호 찾기</span>
+                    <span><Link to="/signup">회원가입하기</Link></span>
+                    <span><Link to="/changepwdpage">비밀번호 찾기</Link></span>
                 </div>
             </div>
         </>
