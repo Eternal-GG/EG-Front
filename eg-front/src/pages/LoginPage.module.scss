@@ -66,6 +66,7 @@ body {
   .TextButton {
     margin-top: 20px;
     color: gray;
+    cursor: pointer;
 
     span{
       color: gray;
@@ -73,12 +74,22 @@ body {
       border-width: 0px 0px 1px 0px;
       font-size: 14px;
 
+      a{
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+      }
+
       &:first-child{
         float: left;
       }
 
       &:last-child{
         float: right;
+      }
+
+      &:hover{
+        color: black;
       }
     }
 
