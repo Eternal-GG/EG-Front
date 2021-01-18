@@ -1,8 +1,13 @@
 :global{
   body{
-    font-family: 나눔스퀘어;
+    font-family: 나눔고딕;
     margin: 0;
     padding: 0;
+    background: #fcfcfc;
+
+    a{
+      text-decoration: none;
+    }
 
     button{
       cursor: pointer;
@@ -11,6 +16,16 @@
 
     input{
       outline-style: none;
+    }
+
+    img{
+      display: block;
+    }
+
+    .clearfix{
+      content: "";
+      display: block;
+      clear: both;
     }
   }
 }

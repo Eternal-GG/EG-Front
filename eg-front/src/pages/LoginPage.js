@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './LoginPage.module.scss'
 import {Link} from "react-router-dom";
+import Header from "../components/Header";
 
 function LoginPage() {
     const {LoginBox, TextBox, RemainBox, TextButton} = styles;
     return(
         <>
+            <Header />
             <div className={LoginBox}>
                 <h1><b>Ez.GG</b></h1>
                     <input className={TextBox} type='text' name='id' placeholder='이메일 주소' />

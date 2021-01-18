@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 
 function ChangePwdPage() {
     return(
         <>
-            <Header/>
+            <Header />
             <h1>비밀번호 찾는 페이지</h1>
             <input type="text" placeholder="이메일을 입력하세요"/>
             <button>전송</button>

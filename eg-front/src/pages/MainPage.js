@@ -1,11 +1,16 @@
 import React from 'react';
-import Header from "../components/Header/Header";
+import mainImg from "../images/mainImg.jpg";
+import Header from "../components/Header";
+import ImgSearch from "../components/ImgSearch";
 
 function MainPage() {
     return(
         <>
-            <Header/>
-            <h1><b>Main Page</b></h1>
+            <Header />
+            <div></div>
+            {/*<img src={mainImg} alt="mainImg" />*/}
+            <ImgSearch />
+            <h1>mainpage</h1>
         </>
     );
 };
