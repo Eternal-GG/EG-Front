@@ -23,8 +23,8 @@ function Header() {
                     <input type="text" />
                     <button><BiSearch className={cx('icon')} /></button>
                 </div>
-                {/*<Link to="/login"><button className={cx('login-btn')}>로그인</button></Link>*/}
-                <Link to="/mypage"><CgProfile className={cx('mypage-btn')}/></Link>
+                <Link to="/login"><button className={cx('login-btn')}>로그인</button></Link>
+                {/*<Link to="/mypage"><CgProfile className={cx('mypage-btn')}/></Link>*/}
             </div>
         </header>
     );

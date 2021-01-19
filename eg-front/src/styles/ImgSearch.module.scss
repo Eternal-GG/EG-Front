@@ -1,22 +1,28 @@
 .img-box{
   background-image: url("../images/mainImg.jpg");
   height: 270px;
+  box-sizing: border-box;
+  padding: 115px 672px;
 
   .search-box{
-    position: relative;
-    top: 50%;
-    left: 35%;
-
+    //position: relative;
+    //top: 50%;
+    //left: 35%;
+    box-sizing: border-box;
 
     background: white;
-    padding: 5px 5px;
-    height: 25px;
-    width: 580px;
+    padding: 10px 10px;
+    height: 40px;
+    width: 576px;
 
     input{
-      width: 540px;
+      padding: 0px;
+      height: 20px;
+      width: 515px;
       border: 0px;
       background: rgba(0,0,0,0);
+      margin-right: 5px;
+      font-size: 20px;
     }
 
     button{
