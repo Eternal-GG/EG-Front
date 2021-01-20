@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 
 function MyPage() {
     return(
         <>
-            <Header/>
+            <Header />
             <h1>마이페이지</h1>
             <button>회원탈퇴</button>
             <button>비밀번호 변경</button>

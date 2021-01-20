@@ -1,0 +1,106 @@
+$mainGray: #212121;
+$mainYellow: #ffd144;
+$mainOrange: #f98d2b;
+
+header{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  background: rgba(256,256,256,0.9);
+  height: 60px;
+  border: #f98d2b solid;
+  border-width: 1px 0px;
+  padding: 5px 30px;
+
+  .content-left{
+    float: left;
+    margin-top: 5px;
+
+    img{
+      float: left;
+      width: 90px;
+      height: 50px;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+    div{
+      float: left;
+      margin-top: 15px;
+      color: gray;
+      cursor: pointer;
+
+      &:hover{
+        color: $mainGray;
+      }
+    }
+
+    div + div {
+      margin-left: 30px;
+    }
+  }
+
+  .content-right{
+    float: right;
+    margin-top: 12px;
+
+  .search-box{
+    display: block;
+    float: left;
+    background: $mainYellow;
+    padding: 5px 5px;
+    height: 25px;
+
+    input{
+      border: 0px;
+      background: rgba(0,0,0,0);
+      font-size: 14px;
+    }
+
+    button{
+      border: 0px;
+      background: rgba(0,0,0,0);
+
+      .icon{
+        display: block;
+        color: gray;
+        width: 20px;
+        height: 20px;
+
+        &:hover{
+          color: $mainOrange;
+        }
+      }
+    }
+  }
+    .login-btn{
+      background: $mainYellow;
+      font-family: 나눔고딕;
+      border: 0px;
+      color: gray;
+      padding: 10px 10px;
+
+      &:hover{
+        background: $mainOrange;
+        color: white;
+      }
+    }
+
+    .mypage-btn{
+      background: $mainYellow;
+      border-radius: 30px;
+      color: gray;
+      cursor: pointer;
+      font-size: 35px;
+
+      &:hover{
+        background: $mainOrange;
+        color: white;
+      }
+    }
+
+    .search-box + a{
+      margin-left: 30px;
+    }
+  }
+}
