@@ -6,7 +6,6 @@ function MainPage() {
     return(
         <>
             <Header />
-            <div></div>
             <ImgSearch />
             <h1>mainpage</h1>
         </>

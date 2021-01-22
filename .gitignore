@@ -1,2 +1,4 @@
 .idea/
 eg-front/.eslintcache
+
+eg-front/src/Config.js
