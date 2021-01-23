@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import styles from './LoginPage.module.scss'
 import Header from "../components/Header";
 import axios from "axios";
 import {loginAPI} from "../Config";
@@ -28,7 +27,11 @@ function LoginPage({history}) {
         } catch(e){
             setError(e);
             console.log(e);
-            alert('회원 정보가 일치하지 않습니다');
+            if (e === 'nullException'){
+                alert('이메일 주소 또는 비밀번호를 입력해주세요!');
+            }else{
+                alert('회원 정보가 일치하지 않습니다');
+            }
         }
     };
 

@@ -7,6 +7,7 @@ import MyPage from "./pages/MyPage";
 import ChangePwdPage from "./pages/ChangePwdPage";
 
 import styles from './App.module.scss';
+import AgreementPage from "./pages/AgreementPage";
 
 function App() {
     const {App} = styles;
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" component={SignUpPage} />
         <Route path="/mypage" component={MyPage} />
         <Route path="/changepwdpage" component={ChangePwdPage} />
+        <Route path="/Agreement" component={AgreementPage} />
     </div>
   );
 }
