@@ -8,7 +8,7 @@ import RegisterForm from "../components/RegisterForm";
 import {validateEmail, validatePassword, validateNickname, validatePasswordConfirm} from "../utils/validate";
 import {NULL_INPUT} from "../utils/types";
 
-function RegisterPage(props) {
+function RegisterPage({history}) {
     const [email, setEmail] = useState("");
     const [nickname, setNickname] = useState("");
     // const [bsNickname, setBsNickname] = useState("");
@@ -110,7 +110,7 @@ function RegisterPage(props) {
           };
           dispatch(registerUser(body)).then(res => {
               alert(`${nickname}님 가입을 축하드립니다!`);
-              props.history.push("/");
+              history.push("/");
           })
       }else{
           nullCheck ?
@@ -122,7 +122,7 @@ function RegisterPage(props) {
 
     return(
         <>
-            <Header />
+            <Header history={history}/>
             <RegisterForm
                 onEmailHandler={onEmailHandler}
                 onNicknameHandler={onNicknameHandler}
