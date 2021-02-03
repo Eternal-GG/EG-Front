@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "../styles/Header.module.scss";
@@ -10,7 +10,12 @@ import logo from "../images/EzggLogo.svg";
 
 const cx = classNames.bind(styles);
 
-function Header() {
+function Header({history}) {
+    const [input, setInput] = useState("");
+    const onChangeHandler = e => {setInput(e.currentTarget.value);};
+    const onSearchHandler = () => {
+        history.push(`/bs/player/:${input}`);
+    };
     return(
         <header>
             <div className={cx('content-left', 'clearfix')}>
@@ -20,14 +25,20 @@ function Header() {
             </div>
             <div className={cx('content-right')}>
                 <div className={cx('search-box')}>
-                    <input type="text" />
-                    <button><BiSearch className={cx('icon')} /></button>
+                    <input type="search" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
+                    <button><BiSearch className={cx('icon')} onClick={onSearchHandler}/></button>
                 </div>
-                <Link to="/login"><button className={cx('login-btn')}>로그인</button></Link>
-                {/*<Link to="/mypage"><CgProfile className={cx('mypage-btn')}/></Link>*/}
+                {
+                    localStorage.getItem('token') ?
+                        <Link to="/mypage"><CgProfile className={cx('mypage-btn')}/></Link>
+                        :
+                        <Link to="/login"><button className={cx('login-btn')}>로그인</button></Link>
+                }
             </div>
         </header>
     );
 }
 
 export default Header;
+
+// todo 그냥 토큰값 존재 유무만 확인하면 되는지 아니면 한 번 검증 해야되는지 알아보기

@@ -5,12 +5,12 @@ import { BiSearch } from 'react-icons/bi';
 
 const cx = classNames.bind(styles);
 
-function ImgSearch() {
+function ImgSearch({onChangeHandler, onSearchHandler}) {
     return(
         <div className={cx('img-box')}>
             <div className={cx('search-box')}>
-                <input type="text" />
-                <button><BiSearch className={cx('icon')} /></button>
+                <input type="search" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
+                <button><BiSearch className={cx('icon')} onClick={onSearchHandler}/></button>
             </div>
         </div>
     );

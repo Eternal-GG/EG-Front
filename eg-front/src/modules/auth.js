@@ -8,7 +8,6 @@ const LOGOUT_USER = "auth/LOGOUT_USER";
 
 export function registerUser(userInfo) {
     const data = request("post", REGISTER_API, userInfo);
-
     return{
         type: REGISTER_USER,
         payload: data,

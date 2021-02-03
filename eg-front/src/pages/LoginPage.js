@@ -6,7 +6,7 @@ import {loginUser} from "../modules/auth";
 import Header from "../components/Header";
 import LoginForm from "../components/LoginForm";
 
-function LoginPage(props) {
+function LoginPage({history}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
@@ -27,11 +27,11 @@ function LoginPage(props) {
           dispatch(loginUser(body))
               .then(res => {
                   console.log(res);
-                  if(res.payload.loginSuccess){
-                      localStorage.setItem("token", res.data)
-                      props.history.push("/");
+                  if(res.payload){
+                      localStorage.setItem("token", res.payload);
+                      history.push("/");
                   }else{
-                      alert(res.payload.message);
+                      alert("가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.");
                   }
               })
               .catch(err => {
@@ -44,7 +44,7 @@ function LoginPage(props) {
 
     return(
         <>
-            <Header />
+            <Header history={history}/>
             <LoginForm onEmailHandler={onEmailHandler} onPasswordHandler={onPasswordHandler} onClickHandler={onClickHandler}/>
         </>
     );

@@ -25,6 +25,7 @@ function LoginForm({onEmailHandler, onPasswordHandler, onClickHandler}) {
                     name='password'
                     placeholder='비밀번호'
                     onChange={onPasswordHandler}
+                    onKeyPress={e => {if(e.code === 'Enter') onClickHandler()}}
                 />
                 <div className={cx('RemainBox')}>
                     <input type='checkbox' name='remainLogin' />
