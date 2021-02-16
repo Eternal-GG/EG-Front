@@ -1,0 +1,22 @@
+@import 'colors';
+
+@mixin button-color($color, $color-text, $hover-color, $hover-color-text){
+  background: $color;
+  color: $color-text;
+  &:hover{
+    background: $hover-color;
+    color: $hover-color-text;
+  }
+}
+
+.btn{
+  &.yellow{
+    @include button-color($mainYellow, gray, $mainOrange, white)
+  }
+}
+
+.clearfix{
+  content: "";
+  display: block;
+  clear: both;
+}

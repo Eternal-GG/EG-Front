@@ -7,8 +7,8 @@ import Header from "../components/Header";
 import LoginForm from "../components/LoginForm";
 
 function LoginPage({history}) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
     const onEmailHandler = e => {

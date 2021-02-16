@@ -1,15 +1,16 @@
 import React from 'react';
-import logo from "../images/EzggLogo.svg";
-import {Link} from "react-router-dom";
-import classNames from "classnames/bind";
-import styles from "../styles/LoginForm.module.scss";
+import logo from '../images/EzggLogo.svg';
+import {Link} from 'react-router-dom';
+import classNames from 'classnames/bind';
+import styles from '../styles/LoginForm.module.scss';
+import commonObject from '../styles/CommonObject.scss';
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(styles, commonObject);
 
 function LoginForm({onEmailHandler, onPasswordHandler, onClickHandler}) {
     const inputStyle='TextBox';
     return(
-        <article>
+        <article className={cx('YellowBg')}>
             <div className={cx('LoginBox')}>
                 <img src={logo} alt="logo" />
                 <input
@@ -27,11 +28,7 @@ function LoginForm({onEmailHandler, onPasswordHandler, onClickHandler}) {
                     onChange={onPasswordHandler}
                     onKeyPress={e => {if(e.code === 'Enter') onClickHandler()}}
                 />
-                <div className={cx('RemainBox')}>
-                    <input type='checkbox' name='remainLogin' />
-                    <span>로그인 기억하기</span>
-                </div>
-                <button onClick={onClickHandler}>로그인 하기</button>
+                <button className={cx('btn', 'yellow', 'login')} onClick={onClickHandler}>로그인 하기</button>
                 <div className={cx('TextButton')}>
                     <span><Link to="/signup">회원가입하기</Link></span>
                     <span><Link to="/changepwdpage">비밀번호 찾기</Link></span>

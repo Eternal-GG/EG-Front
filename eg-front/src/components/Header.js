@@ -1,38 +1,47 @@
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
-import classNames from "classnames/bind";
-import styles from "../styles/Header.module.scss";
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import classNames from 'classnames/bind';
+import styles from '../styles/Header.module.scss';
+import commonObject from '../styles/CommonObject.scss';
 
 import { BiSearch } from 'react-icons/bi';
-import {CgProfile} from 'react-icons/cg';
 
-import logo from "../images/EzggLogo.svg";
+import logo from '../images/EzggLogo.svg';
+import Profile from "./Profile";
+import {logoutUser} from "../modules/auth";
+import {useDispatch} from "react-redux";
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(styles, commonObject);
 
 function Header({history}) {
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState('');
+    const dispatch = useDispatch();
     const onChangeHandler = e => {setInput(e.currentTarget.value);};
     const onSearchHandler = () => {
         history.push(`/bs/player/:${input}`);
     };
+    const onClickHandler = () =>{
+        dispatch(logoutUser());
+        localStorage.removeItem("token");
+        history.go(0);
+    };
     return(
         <header>
             <div className={cx('content-left', 'clearfix')}>
-                <Link to="/"><img src={logo} alt="logo" /></Link>
+                <Link to="/"><img src={logo} alt='logo' /></Link>
                 <div>자유게시판</div>
                 <div>랭커 통계</div>
             </div>
             <div className={cx('content-right')}>
                 <div className={cx('search-box')}>
-                    <input type="search" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
+                    <input type="text" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
                     <button><BiSearch className={cx('icon')} onClick={onSearchHandler}/></button>
                 </div>
                 {
                     localStorage.getItem('token') ?
-                        <Link to="/mypage"><CgProfile className={cx('mypage-btn')}/></Link>
+                        <Profile cx={cx} onClickHandler={onClickHandler}/>
                         :
-                        <Link to="/login"><button className={cx('login-btn')}>로그인</button></Link>
+                        <Link to="/login"><button className={cx('btn', 'yellow', 'login')}>로그인</button></Link>
                 }
             </div>
         </header>

@@ -9,7 +9,7 @@ function ImgSearch({onChangeHandler, onSearchHandler}) {
     return(
         <div className={cx('img-box')}>
             <div className={cx('search-box')}>
-                <input type="search" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
+                <input type="text" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
                 <button><BiSearch className={cx('icon')} onClick={onSearchHandler}/></button>
             </div>
         </div>
