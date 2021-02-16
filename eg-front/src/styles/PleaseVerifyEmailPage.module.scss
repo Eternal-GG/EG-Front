@@ -1,0 +1,53 @@
+@import 'colors';
+.Wrapper{
+  height: 100vh;
+  background: $mainOrange-light;
+  box-sizing: border-box;
+  padding: 15vh;
+
+  article{
+    margin: auto;
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    background: #fcfcfc;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
+    border-top: solid $mainOrange 3px;
+    border-bottom: solid $mainOrange 3px;
+    &.success{
+      padding: 30px 80px;
+      box-sizing: border-box;
+    }
+
+    img{
+      width: 200px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+
+    span{
+      display: block;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 5px;
+      text-align: center;
+
+      &.fail{
+        font-family: "여기어때 잘난체";
+        color: $mainOrange;
+        font-weight: bolder;
+        font-size: 70px;
+      }
+    }
+
+    .login{
+      padding: 10px;
+      width: 100%;
+      font-size: 17px;
+      padding: 6px;
+      margin-top: 20px;
+    }
+  }
+}
+
+// PleaseVerifyEmailPage, SuccessEmailPage, FailEmailPage에서 사용 중

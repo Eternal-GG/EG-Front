@@ -1,20 +1,24 @@
-:global{
-  body{
+ body{
     font-family: 나눔고딕;
     margin: 0;
     padding: 0;
     background: #fcfcfc;
 
     a{
+      color: black;
       text-decoration: none;
+      outline: none;
     }
 
     button{
+      font-family: 나눔고딕;
+      border: 0px;
       cursor: pointer;
       outline-style: none;
     }
 
     input{
+      border: 0px;
       outline-style: none;
     }
 
@@ -22,12 +26,13 @@
       display: block;
     }
 
-    .clearfix{
-      content: "";
-      display: block;
-      clear: both;
-    }
-  }
-}
+   ul{
+     padding: 0;
+     list-style-type: none;
+   }
 
-// 공용, reset css 포함
+   li{
+     list-style: none;
+   }
+  }
+// reset css 포함

@@ -1,16 +1,15 @@
-$mainOrange: #f98d2b;
-$mainYellow: #ffd144;
+@import 'colors';
 
-article{
+.YellowBg{
   height: 100vh;
-  background: rgba(255, 208, 68, 0.2);
+  background: $mainOrange-light;
   box-sizing: border-box;
-  padding: 25vh;
+  padding: 15vh;
 }
 
 .LoginBox{
   width: 300px;
-  height: 300px;
+  height: 280px;
 
   background: white;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
@@ -20,7 +19,7 @@ article{
   display: flex;
   flex-direction: column;
 
-  padding: 20px 40px 40px 40px;
+  padding: 30px 40px 40px 40px;
 
   img{
     margin: 0 auto;
@@ -43,33 +42,11 @@ article{
     }
   }
 
-  .RemainBox{
-    margin: 0 auto;
-
-    margin-top: 6px;
-
-    text-align: center;
-    vertical-align: middle;
-
-    span{
-      color: gray;
-      font-size: 14px;
-    }
-  }
-
-  button{
-    background: $mainYellow;
+  .login{
     width: 100%;
     font-size: 17px;
     padding: 6px;
     margin-top: 20px;
-    color: gray;
-    border: none;
-    vertical-align: middle;
-    &:hover {
-      background: $mainOrange;
-      color: white;
-    }
   }
 
   .TextButton {

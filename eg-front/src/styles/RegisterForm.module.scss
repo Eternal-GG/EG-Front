@@ -1,9 +1,8 @@
-$mainOrange: #f98d2b;
-$mainYellow: #ffd144;
+@import 'colors';
 
-article{
+.YellowBg{
   height: 100vh;
-  background: rgba(255, 208, 68, 0.2);
+  background: $mainOrange-light;
   box-sizing: border-box;
   padding: 15vh;
 }

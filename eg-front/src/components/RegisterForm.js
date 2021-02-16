@@ -33,7 +33,7 @@ function RegisterForm({
     };// msg가 전부 없으면 true
 
     return(
-        <article>
+        <article className={cx('YellowBg')}>
             <div className={cx('SignupBox')}>
                 <img src={logo} alt="logo" />
                 <div className={cx('infoBox')}>
@@ -73,6 +73,7 @@ function RegisterForm({
                     msg={passwordConfirmMsg}
                     placeholder={"비밀번호 확인"}
                     inputHandler={onPasswordConfirmHandler}
+                    onClickHandler={onClickHandler}
                 />
                 <div className={cx('agreements')}>
                     <input type="checkbox" name="termAgreement" onClick={onCheckedInputHandler}/>

@@ -100,7 +100,7 @@ function RegisterPage({history}) {
 
     const onClickHandler = () => {
         const nullCheck = inputsNullCheck(email, nickname, password, passwordConfirm, termChecked);
-      if((password === passwordConfirm) && nullCheck){
+      if(nullCheck){
           let body = {
               email,
               password,
@@ -109,16 +109,14 @@ function RegisterPage({history}) {
               accountType
           };
           dispatch(registerUser(body)).then(res => {
-              alert(`${nickname}님 가입을 축하드립니다!`);
-              history.push("/");
-          })
+              res.payload ?
+                  history.push('/verification') :
+                  history.push('/error');
+          });
       }else{
-          nullCheck ?
-              alert("비밀번호가 일치하지 않습니다.")
-              :
               alert("모든 입력 값을 채워주세요.");
-      }// register validate 추가하기, api 상에서 에러가 났을 때 조치 취해주기(일단은 가입축하 메세지라도 없애기)
-    };
+      }
+    };//TODO 이메일, 닉네임 중복확인 api 만들면 중복체크 하기, 일단은 모든 에러는 단순 에러페이지로 보냄
 
     return(
         <>
@@ -138,4 +136,3 @@ function RegisterPage({history}) {
 }
 
 export default withRouter(RegisterPage);
-//TODO 회원가입 테스트 해보기
