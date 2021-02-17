@@ -8,7 +8,7 @@ function MainPage({history}) {
     const [input, setInput] = useState('');
     const onChangeHandler = e => {setInput(e.currentTarget.value);};
     const onSearchHandler = () => {
-        history.push(`/bs/player/:${input}`);
+        history.push(`/bs/player/${input}`);
     };
 
     return(

@@ -11,7 +11,7 @@ import {
     PASSWORD,
     PASSWORD_CONFIRM,
     NICKNAME,
-    BS_NICKNAME,
+    // BS_NICKNAME,
     } from "../utils/types";
 
 const cx = classNames.bind(styles);

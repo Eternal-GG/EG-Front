@@ -1,13 +1,15 @@
 import React from 'react';
 import Header from "../components/Header";
+import MatchProfileSimple from "../components/MatchProfileSimple";
+import MatchProfile from "../components/MatchProfile";
 
 function MatchHistoryPage({match, history}) {
     const {gameNickname} = match.params;
     return(
         <>
             <Header history={history}/>
-            <span>전적검색 페이지</span>
-            <span>{match.params.gameNickname}</span>
+            <MatchProfileSimple gameNickname={gameNickname}/>
+            <MatchProfile />
             </>
     )
 }
