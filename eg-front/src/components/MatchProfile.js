@@ -2,7 +2,7 @@ import React from 'react';
 
 function MatchProfile() {
     return(
-        <div>상세 매치 프로필</div>
+        <div><b>상세 매치 프로필</b></div>
     )
 }
 export default MatchProfile;

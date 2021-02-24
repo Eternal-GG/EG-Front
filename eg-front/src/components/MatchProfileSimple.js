@@ -1,29 +1,36 @@
 import React from 'react';
 import normal from '../images/Rank Tier/09_Normal.png';
-import { BiBookAlt, BiBookHeart, BiCaretDown, BiCaretUp, BiCheck } from 'react-icons/bi';
+// import normal from '../images/Rank Tier/08_Immortal.png';
+import { BiCaretDown, BiCaretUp, BiCheck } from 'react-icons/bi';
+import styles from '../styles/MatchProfileSimple.moduel.scss';
+import commonObject from '../styles/CommonObject.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles, commonObject);
 
 function MatchProfileSimple({gameNickname}) {
     return(
-        <section>
+        <section className={cx('MatchProfileSimple')}>
             <article>
                 <section>
-                    <img src={normal} alt='노말' />
+                    <img src={normal} className={cx('img-rank')} alt='노말' />
                     <span>일반</span>
                 </section>
                 <section>
-                    <span>{gameNickname}</span>
+                    <span className={cx('span-nickname')}>{gameNickname}</span>
                     <div>
-                        <button>전적 갱신</button>
-                        <button><BiBookAlt />즐겨찾기</button>
+                        <button className={cx('btn', 'yellow')}>전적 갱신</button>
+                        <button className={cx('btn', 'yellow')}>즐겨찾기</button>
                     </div>
-                    <span>최근 업데이트 : 27분 전</span>
+                    <span className={cx('span-time')}>최근 업데이트 : 27분 전</span>
                 </section>
-                <ul>
-                    <li>일반(고른거 뜸)<BiCaretDown/></li>
-                    <li><BiCheck/>일반</li>
-                    <li>시즌1</li>
-                </ul>
-                <input/>
+                <section>
+                    <span>일반<BiCaretDown/></span>
+                    <ul>
+                        <li><BiCheck/>일반</li>
+                        <li><BiCheck/>시즌1</li>
+                    </ul>
+                </section>
             </article>
         </section>
     );
