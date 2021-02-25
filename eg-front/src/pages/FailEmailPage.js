@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from "../components/Header";
 import styles from "../styles/PleaseVerifyEmailPage.module.scss";
-import logo from "../images/EzggLogo.svg";
 
 function FailEmailPage({history}) {
     return(

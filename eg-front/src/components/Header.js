@@ -18,7 +18,7 @@ function Header({history}) {
     const dispatch = useDispatch();
     const onChangeHandler = e => {setInput(e.currentTarget.value);};
     const onSearchHandler = () => {
-        history.push(`/bs/player/:${input}`);
+        history.push(`/bs/player/${input}`);
     };
     const onClickHandler = () =>{
         dispatch(logoutUser());

@@ -1,4 +1,12 @@
 @import 'colors';
+@font-face {
+  font-family: 'yg-jalnan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+  format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .Wrapper{
   height: 100vh;
   background: $mainOrange-light;
@@ -33,7 +41,7 @@
       text-align: center;
 
       &.fail{
-        font-family: "여기어때 잘난체";
+        font-family: '여기어때 잘난체', 'yg-jalnan', sans-serif;
         color: $mainOrange;
         font-weight: bolder;
         font-size: 70px;
