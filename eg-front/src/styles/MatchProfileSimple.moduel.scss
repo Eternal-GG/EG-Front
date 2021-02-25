@@ -5,7 +5,8 @@
   height: 100vh;
   article{
     margin: 0 auto;
-    background: $mainWhite;
+    //background: $mainWhite;
+    background-image: url('../images/simpleProfileBg.jpg');
     width: 1200px;
     display: flex;
   }
@@ -52,17 +53,27 @@
       padding-top: 2em;
       padding-right: 2em;
       font-weight: 700;
+      cursor: pointer;
+      color: gray;
 
       span{
         display: block;
-        border: solid $mainOrange;
+        border: solid $mainYellow;
         border-width: 2px 2px 0px 2px;
         padding: 8px;
         font-size: 15px;
         text-align: center;
+        background: $mainYellow;
+        font-weight: 400;
 
         svg{
           margin-left: 5px;
+        }
+        &:hover{
+          color: black;
+        }
+        &:active{
+          color: black;
         }
       }
       li+li{
@@ -71,9 +82,16 @@
 
       li{
         font-weight: 400;
-        border: 2px solid $mainOrange;
+        border: 2px solid $mainYellow;
         padding: 8px;
         font-size: 13px;
+        background: $mainWhite;
+        &:hover{
+          color: black;
+        }
+        &:active{
+          color: black;
+        }
 
         svg{
           margin-right: 2px;
