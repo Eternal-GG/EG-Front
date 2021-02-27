@@ -50,9 +50,9 @@ function LoginPage({history}) {
     );
 }
 
-export default withRouter(LoginPage);
+export default LoginPage;
 
 // 로그인 페이지
 //TODO 이메일 또는 비번 하나만 안 쳤을 때 해당 부분 스타일 변하게 하기
-// 로그인 유지 시키기
 // 에러처리 잘 되는지 확인하기
+// asyn await으로 수정하기

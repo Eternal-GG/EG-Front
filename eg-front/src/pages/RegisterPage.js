@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {withRouter} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
 import {registerUser} from "../modules/auth";
@@ -135,4 +134,5 @@ function RegisterPage({history}) {
             );
 }
 
-export default withRouter(RegisterPage);
+export default RegisterPage;
+// TODO async await으로 수정하기

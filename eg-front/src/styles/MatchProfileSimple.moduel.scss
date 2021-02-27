@@ -3,6 +3,7 @@
 .MatchProfileSimple{
   background: $mainOrange-light;
   height: 100vh;
+
   article{
     margin: 0 auto;
     //background: $mainWhite;
@@ -53,10 +54,10 @@
       padding-top: 2em;
       padding-right: 2em;
       font-weight: 700;
-      cursor: pointer;
       color: gray;
 
       span{
+        cursor: pointer;
         display: block;
         border: solid $mainYellow;
         border-width: 2px 2px 0px 2px;
@@ -81,6 +82,7 @@
       }
 
       li{
+        cursor: pointer;
         font-weight: 400;
         border: 2px solid $mainYellow;
         padding: 8px;

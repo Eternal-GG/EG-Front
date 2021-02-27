@@ -27,7 +27,7 @@ function Header({history}) {
     };
     return(
         <header>
-            <div className={cx('content-left', 'clearfix')}>
+            <div className={cx('content-left')}>
                 <Link to="/"><img src={logo} alt='logo' /></Link>
                 <div>자유게시판</div>
                 <div>랭커 통계</div>
