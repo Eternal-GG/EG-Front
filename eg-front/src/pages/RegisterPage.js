@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {withRouter} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
 import {registerUser} from "../modules/auth";
@@ -98,24 +97,27 @@ function RegisterPage({history}) {
         return (email && nickname && password && passwordConfirm && termChecked);
     };
 
-    const onClickHandler = () => {
-        const nullCheck = inputsNullCheck(email, nickname, password, passwordConfirm, termChecked);
-      if(nullCheck){
-          let body = {
-              email,
-              password,
-              // bsNickname,
-              nickname,
-              accountType
-          };
-          dispatch(registerUser(body)).then(res => {
-              res.payload ?
-                  history.push('/verification') :
-                  history.push('/error');
-          });
-      }else{
-              alert("모든 입력 값을 채워주세요.");
-      }
+    const onClickHandler = async () => {
+        try{
+            const nullCheck = inputsNullCheck(email, nickname, password, passwordConfirm, termChecked);
+            if(nullCheck){
+                let body = {
+                    email,
+                    password,
+                    // bsNickname,
+                    nickname,
+                    accountType
+                };
+                const res = await dispatch(registerUser(body));
+                if (res.payload) {history.push('/verification')};
+            }else{
+                alert("모든 입력 값을 채워주세요.");
+            }
+        }catch (e) {
+            console.error(e);
+            history.push('/error')
+        }
+
     };//TODO 이메일, 닉네임 중복확인 api 만들면 중복체크 하기, 일단은 모든 에러는 단순 에러페이지로 보냄
 
     return(
@@ -135,4 +137,5 @@ function RegisterPage({history}) {
             );
 }
 
-export default withRouter(RegisterPage);
+export default RegisterPage;
+// TODO async await으로 수정하기

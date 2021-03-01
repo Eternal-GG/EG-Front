@@ -1,20 +1,20 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import MainPage from "./pages/MainPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import MyPage from "./pages/MyPage";
-import ChangePwdPage from "./pages/ChangePwdPage";
 
 import './App.scss';
-import AgreementPage from "./pages/AgreementPage";
-import MatchHistoryPage from "./pages/MatchHistoryPage";
-import PleaseVerifyEmailPage from "./pages/PleaseVerifyEmailPage";
-import SuccessEmailPage from "./pages/SuccessEmailPage";
-import FailEmailPage from "./pages/FailEmailPage";
-import ErrorPage from "./pages/ErrorPage";
+
+import {
+    MainPage, LoginPage, RegisterPage,
+    ChangePwdPage, MyPage, AgreementPage,
+    MatchHistoryPage, PleaseVerifyEmailPage, SuccessEmailPage,
+    FailEmailPage, ErrorPage
+} from './pages';
 
 function App() {
+    const RouteNoMatch = () => {
+      return <div>404 NOT FOUND</div>
+    };
+
   return (
     <div>
         <Switch>
@@ -29,6 +29,7 @@ function App() {
             <Route path='/verification/success' component={SuccessEmailPage} />
             <Route path='/verification/fail' component={FailEmailPage} />
             <Route path='/error' component={ErrorPage} />
+            <Route component={RouteNoMatch} />
         </Switch>
     </div>
   );
