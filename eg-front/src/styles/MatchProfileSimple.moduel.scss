@@ -3,6 +3,9 @@
 .MatchProfileSimple{
   background: $mainOrange-light;
   height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0% 18.5%;
 
   article{
     margin: 0 auto;
