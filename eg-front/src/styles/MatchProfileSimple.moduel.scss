@@ -1,65 +1,67 @@
 @import 'colors';
 
-.MatchProfileSimple{
-  background: $mainOrange-light;
-  height: 100vh;
-  position: relative;
-  box-sizing: border-box;
-  padding: 0% 18.5%;
+.MatchProfileSimple {
+  margin: 0 auto;
+  //background: $mainWhite;
+  background-image: url('../images/simpleProfileBg.jpg');
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
 
-  article{
-    margin: 0 auto;
-    //background: $mainWhite;
-    background-image: url('../images/simpleProfileBg.jpg');
-    width: 1200px;
-    display: flex;
-  }
-  section{
+  section {
     padding: 2em 1em 2em 1em;
     box-sizing: border-box;
-    &:nth-child(1){
+
+    &:nth-child(1) {
       flex-basis: 10%;
       padding-left: 2em;
       text-align: center;
       font-weight: 700;
-      span{
+
+      span {
         border: solid $mainOrange;
         border-width: 1px 0px;
         padding: 6px 0px;
         font-size: 13px;
       }
     }
-    &:nth-child(2){
+
+    &:nth-child(2) {
       flex-basis: 75%;
       padding-top: 4em;
-      .span-nickname{
+
+      .span-nickname {
         display: block;
         margin-bottom: 30px;
         font-size: 20px;
         font-weight: 800;
       }
-      button{
+
+      button {
         width: 100px;
         margin-bottom: 10px;
         padding: 10px;
         font-size: 15px;
       }
-      button + button{
+
+      button + button {
         margin-left: 5px;
       }
-      .span-time{
+
+      .span-time {
         font-size: 13px;
         color: gray;
       }
     }
-    &:nth-child(3){
+
+    &:nth-child(3) {
       flex-basis: 15%;
       padding-top: 2em;
       padding-right: 2em;
       font-weight: 700;
       color: gray;
 
-      span{
+      span {
         cursor: pointer;
         display: block;
         border: solid $mainYellow;
@@ -70,41 +72,47 @@
         background: $mainYellow;
         font-weight: 400;
 
-        svg{
+        svg {
           margin-left: 5px;
         }
-        &:hover{
+
+        &:hover {
           color: black;
         }
-        &:active{
+
+        &:active {
           color: black;
         }
       }
-      li+li{
+
+      li + li {
         border-top-width: 0px;
       }
 
-      li{
+      li {
         cursor: pointer;
         font-weight: 400;
         border: 2px solid $mainYellow;
         padding: 8px;
         font-size: 13px;
         background: $mainWhite;
-        &:hover{
-          color: black;
-        }
-        &:active{
+
+        &:hover {
           color: black;
         }
 
-        svg{
+        &:active {
+          color: black;
+        }
+
+        svg {
           margin-right: 2px;
         }
       }
     }
   }
-  .img-rank{
+
+  .img-rank {
     width: 100px;
     margin: 0 auto;
     margin-bottom: 15px;

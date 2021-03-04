@@ -1,5 +1,5 @@
 import React from 'react';
-import normal from '../images/Rank Tier/09_Normal.png';
+import normal from '../images/rankTier/09_Normal.png';
 // import normal from '../images/Rank Tier/08_Immortal.png';
 import { BiCaretDown, BiCaretUp, BiCheck } from 'react-icons/bi';
 import styles from '../styles/MatchProfileSimple.moduel.scss';
@@ -10,8 +10,7 @@ const cx = classNames.bind(styles, commonObject);
 
 function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, seasonHandler}) {
     return(
-        <section className={cx('MatchProfileSimple')}>
-            <article>
+            <article className={cx('MatchProfileSimple')}>
                 <section>
                     <img src={normal} className={cx('img-rank')} alt='노말' />
                     <span>일반</span>
@@ -47,7 +46,6 @@ function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, se
 
                 </section>
             </article>
-        </section>
     );
 }
 export default MatchProfileSimple;

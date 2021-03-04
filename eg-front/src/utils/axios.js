@@ -7,6 +7,7 @@ export const request = async (method, url, data) => {
             url,
             data,
         });
+        console.log(payload.status);
         return payload;
     }catch (e) {
         throw new Error('api error');

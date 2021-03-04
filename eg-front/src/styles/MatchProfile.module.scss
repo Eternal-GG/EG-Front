@@ -1,0 +1,31 @@
+@import 'colors';
+.MatchProfile{
+  background: $mainWhite;
+  box-sizing: border-box;
+  padding: 2em;
+  width: 1200px;
+  section{
+    display: flex;
+    text-align: center;
+  }
+  .contents{
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  .image-list{
+    display: flex;
+  }
+  .div-wrapper-flex{
+    display: flex;
+  }
+  .div-basis25{
+    flex-basis: 25%;
+  }
+  .div-basis33{
+    flex-basis: 33%;
+  }
+  .div-basis50{
+    flex-basis: 50%;
+  }
+}
