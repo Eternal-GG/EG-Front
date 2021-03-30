@@ -2,23 +2,71 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import { MostCharacter, TitleWithThreeList } from './matchProfileInside/index';
 import styles from '../styles/MatchProfile.module.scss';
+import { AVERAGE_MENU, TOP_MENU } from '../utils/types';
 
 const cx = classNames.bind(styles);
 
-function MatchProfile() {
-    const averageTitles = [ '평균 킬', '평균 어시스트', '평균 야생동물 사냥' ];
-    const averageData = [ 0.3, 0, 10.4 ];
-    const topPercentTitles = [ 'Top 3', 'Top 5', 'Top 7' ];
-    const topPercentData = [ `1 (0)%`, `4 (20)%`, `7 (30)%` ];
+function MatchProfile({teamMode, gameStatData}) {
+    const {stats, mmr, loading, error, mostCharacter} = gameStatData;
+
+    if (loading) return <div>로딩중...</div>;
+    if (error) return <div>error...</div>;
+    if (!gameStatData) return <div>데이터 없음</div>;
+
+    const makeTeamModeString = teamMode => {
+        let teamModeString = 'solo';
+        switch (teamMode) {
+            case 1:
+                teamModeString = 'solo';
+                break;
+            case 2:
+                teamModeString = 'duo';
+                break;
+            case 3:
+                teamModeString = 'squad';
+                break;
+            default:
+                break;
+        }
+        return teamModeString;
+    }
+    let teamModeString = makeTeamModeString(teamMode);
+    const {
+            averageKills, averageAssistants, averageHunts,
+            averageRank, totalGames, totalWins, top3, top5, top7
+        } = stats[teamMode - 1];
+
+    const averageInfo = [
+        { title: AVERAGE_MENU[0], data: averageKills },
+        { title: AVERAGE_MENU[1], data: averageAssistants },
+        { title: AVERAGE_MENU[2], data: averageHunts }
+    ];
+    const topRateInfo = [
+        { title: TOP_MENU[0], data: top3 },
+        { title: TOP_MENU[1], data: top5 },
+        { title: TOP_MENU[2], data: top7 }
+    ];
     return(
             <article className={cx('MatchProfile')}>
                 <section>
                     <div className={cx('contents')}>
                         <span>자주 쓰는 캐릭터</span>
                         <div className={cx('image-list')}>
-                            <MostCharacter topNum={1} playCount={10} maxKillCount={2} top3Percent={' 1(10)%'} />
-                            <MostCharacter topNum={2} playCount={10} maxKillCount={2} top3Percent={' 1(10)%'} />
-                            <MostCharacter topNum={3} playCount={10} maxKillCount={2} top3Percent={' 1(10)%'} />
+                            {
+                                mostCharacter[teamModeString] &&
+                                mostCharacter[teamModeString].map(({characterCode, totalGames, maxKillings, wins}, idx) => {
+                                    return (
+                                        <MostCharacter
+                                            key = {characterCode}
+                                            characterCode={characterCode - 1}
+                                            topNum={idx+1}
+                                            playCount={totalGames}
+                                            maxKillCount={maxKillings}
+                                            top3Percent={ wins > 0 ? `${wins} (${(totalGames / wins).toFixed(1)})%` : `0 (0)%` }
+                                        />
+                                        )
+                                })
+                            }
                         </div>
                     </div>
                     <div className={cx('contents')}>
@@ -27,22 +75,22 @@ function MatchProfile() {
                             <div className={cx('div-wrapper-flex')}>
                                 <div className={cx('div-basis25')}>
                                     <span>MMR</span>
-                                    <span>500</span>
+                                    <span>{ mmr[teamModeString] }</span>
                                 </div>
                                 <div className={cx('div-basis25')}>
                                     <span>평균 순위</span>
-                                    <span>9.7</span>
+                                    <span>{ averageRank }</span>
                                 </div>
                                 <div className={cx('div-basis50')}>
                                     <span>플레이</span>
                                     <div className={cx('div-wrapper-flex')}>
                                         <div className={cx('div-basis50')}>
                                             <span>플레이 횟수</span>
-                                            <span>21</span>
+                                            <span>{ totalGames }</span>
                                         </div>
                                         <div className={cx('div-basis50')}>
                                             <span>승리 횟수</span>
-                                            <span>0</span>
+                                            <span>{ totalWins }</span>
                                         </div>
                                     </div>
                                 </div>
@@ -51,13 +99,25 @@ function MatchProfile() {
                             <div className={cx('div-basis33')}>
                                 <span>평균</span>
                                 <div className={cx('div-wrapper-flex')}>
-                                    <TitleWithThreeList titles={averageTitles} data={averageData} />
+                                    {
+                                        averageInfo.map(({title, data}) => {
+                                            return(
+                                            <TitleWithThreeList title={title} data={data}/>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
                             <div className={cx('div-basis33')}>
-                                <span>상위권 횟수(비율)</span>
+                                <span>상위권 비율</span>
                                 <div className={cx('div-wrapper-flex')}>
-                                    <TitleWithThreeList titles={topPercentTitles} data={topPercentData} />
+                                    {
+                                        topRateInfo.map(({title, data}) => {
+                                            return(
+                                                <TitleWithThreeList title={title} data={`${data}%`} />
+                                            )
+                                        })
+                                    }
                                 </div>
                         </div>
                     </div>

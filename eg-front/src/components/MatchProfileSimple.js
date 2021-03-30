@@ -1,30 +1,27 @@
 import React, {useEffect, useState} from 'react';
-// import normal from '../images/rankTier/09_Normal.png';
-// import normal from '../images/Rank Tier/08_Eternity.png';
 import { BiCaretDown, BiCaretUp, BiCheck } from 'react-icons/bi';
 import styles from '../styles/MatchProfileSimple.moduel.scss';
 import commonObject from '../styles/CommonObject.scss';
 import classNames from 'classnames/bind';
-import {useSelector} from "react-redux";
 import {tierImg, normal, unRank} from '../utils/images';
 import {TIER, UN_RANK} from "../utils/types";
 
 const cx = classNames.bind(styles, commonObject);
 
-function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, teamMode, SEASON, fetchStat, seasonHandler}) {
+function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, teamMode, gameStatData, SEASON, fetchStat, seasonHandler}) {
     const {NORMAL, SEASON_1} = SEASON;
-    const {stats, mmr, success} = useSelector(state => state.game);
+    const {stats, mmr, error} = gameStatData;
     const [tierInfo, setTierInfo] = useState({text: NORMAL, imgSrc:normal});
 
     useEffect(()=>{
-        console.log('render')
         getTierInfo();
     }, [stats, teamMode]);
 
     const getTierInfo = () => {
         let txt = '';
         let src = '';
-        if(!success){
+        if(error){
+            // TODO 나중에 데이터 없음으로 따로 처리할지 고민 좀 하기
             txt = UN_RANK;
             src = unRank;
         }
@@ -47,8 +44,7 @@ function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, te
             }
             const teamModeMmr = divideTeamModeMmr();
 
-            console.log(teamModeMmr)
-            if(teamModeMmr === false){
+            if(!teamModeMmr){
                 txt = UN_RANK;
                 src = unRank;
             }else{
@@ -76,6 +72,7 @@ function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, te
         }
         setTierInfo({...tierInfo, text: txt, imgSrc: src});
     }
+    // if(loading) return <div>로딩 중...</div>
     return(
             <article className={cx('MatchProfileSimple')}>
                 <section>
@@ -96,7 +93,7 @@ function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, te
                         {dropdown ? <BiCaretUp/> : <BiCaretDown/>}
                     </span>
                     {
-                        dropdown ?
+                        dropdown &&
                             <ul>
                                 <li onClick={(e)=>{seasonHandler(e)}}>
                                     {season === '일반' ? <BiCheck/> : null}
@@ -107,8 +104,6 @@ function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, te
                                     시즌1
                                 </li>
                             </ul>
-                        :
-                            null
                     }
 
                 </section>
