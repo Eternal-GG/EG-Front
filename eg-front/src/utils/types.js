@@ -60,6 +60,16 @@ const TIER = [
 
 const UN_RANK = '언랭';
 
+const AVERAGE_KILLS = '평균 킬';
+const AVERAGE_ASSISTANTS = '평균 어시스트';
+const AVERAGE_HUNTS = '평균 야생동물 사냥';
+const AVERAGE_MENU = [AVERAGE_KILLS, AVERAGE_ASSISTANTS, AVERAGE_HUNTS];
+
+const TOP3 = 'Top 3';
+const TOP5 = 'Top 5';
+const Top7 = 'Top 7';
+const TOP_MENU = [TOP3, TOP5, Top7];
+
 export {
     EMAIL,
     TEXT,
@@ -71,4 +81,6 @@ export {
     TIER,
     SEASON,
     UN_RANK,
+    AVERAGE_MENU,
+    TOP_MENU
 };

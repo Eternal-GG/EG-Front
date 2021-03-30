@@ -5,8 +5,8 @@ import MatchProfile from "../components/MatchProfile";
 import TeamModeMenu from "../components/TeamModeMenu";
 import styles from '../styles/MatchHisotryPage.module.scss';
 import {SEASON} from '../utils/types';
-import {useDispatch} from "react-redux";
-import {getStats} from '../modules/game';
+import {useDispatch, useSelector} from "react-redux";
+import {getGameStats} from '../modules/game';
 
 function MatchHistoryPage({ match, history }) {
     const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function MatchHistoryPage({ match, history }) {
     const [ season, setSeason ] = useState('일반');
     const [ teamMode, setTeamMode ] = useState(1);
     const { NORMAL, SEASON_1 } = SEASON;
+    const gameStatData = useSelector(state => state.game.statData);
     // 0은 일반을 뜻함
     const dropdownHandler = () => {
         setDropdown(!dropdown);
@@ -37,7 +38,7 @@ function MatchHistoryPage({ match, history }) {
     };
     const fetchStat = useCallback(() =>{
         const seasonNumber = seasonStringToNumber(season);
-        dispatch(getStats({gameNickname, seasonNumber}));
+        dispatch(getGameStats({gameNickname, seasonNumber}));
     }, [gameNickname, season]);
 
     useEffect(()=>{
@@ -54,12 +55,16 @@ function MatchHistoryPage({ match, history }) {
                     dropdownHandler={dropdownHandler}
                     season={season}
                     teamMode={teamMode}
+                    gameStatData={gameStatData}
                     seasonHandler={seasonHandler}
                     fetchStat={fetchStat}
                     SEASON={SEASON}
                 />
                 <TeamModeMenu setTeamMode={setTeamMode}/>
-                <MatchProfile />
+                <MatchProfile
+                    teamMode={teamMode}
+                    gameStatData={gameStatData}
+                />
             </section>
         </>
     )
