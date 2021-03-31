@@ -1,0 +1,28 @@
+@import 'colors';
+
+.MatchLog {
+  background: $mainWhite;
+  box-sizing: border-box;
+  width: 1200px;
+  border: 1px solid lightgrey;
+
+  section {
+    display: flex;
+  }
+
+  .detail {
+    display: flex;
+    width: 99%;
+    box-sizing: border-box;
+    padding: 2em 0 2em 2em;
+  }
+
+  .detailItem {
+    //background: tomato;
+  }
+
+  .itemList {
+    display: flex;
+    flex-direction: row;
+  }
+}

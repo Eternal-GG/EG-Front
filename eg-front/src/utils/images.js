@@ -29,18 +29,19 @@ import ADRIANA from '../images/character/half/017_Adriana.png';
 import SHOICHI from '../images/character/half/018_Shoichi.png';
 import EMMA from '../images/character/half/019_Emma.png';
 import LENOX from '../images/character/half/020_Lenox.png';
-import ROZZI from '../images/character/half/21_Rozzi.png';
+import ROZZI from '../images/character/half/021_Rozzi.png';
 import LUKE from '../images/character/half/022_Luke.png';
 import CATHY from '../images/character/half/023_Cathy.png';
 import ADELA from '../images/character/half/024_Adela.png';
 import BERNICE from '../images/character/half/025_Bernice.png';
+import BARBARA from '../images/character/half/026_Barbara.png';
 
 const tierImg = [iron, bronze, silver, gold, platinum, diamond, demiGod, eternity];
 
 const characterHalfImg = [
     JACKIE, AYA, FIORA, MAGNUS, ZAHIR, NADINE, HYUN_WOO, HART, ISOL, LI_DAILIN,
     YUKI, HYE_JIN, XIUKAI, CHIARA, SISSELA, SILVIA, ADRIANA, SHOICHI, EMMA, LENOX,
-    ROZZI, LUKE, CATHY, ADELA, BERNICE
+    ROZZI, LUKE, CATHY, ADELA, BERNICE, BARBARA
 ];
 
 export {tierImg, normal, unRank, characterHalfImg};
