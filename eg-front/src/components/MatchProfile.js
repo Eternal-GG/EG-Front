@@ -102,7 +102,7 @@ function MatchProfile({teamMode, gameStatData}) {
                                     {
                                         averageInfo.map(({title, data}) => {
                                             return(
-                                            <TitleWithThreeList title={title} data={data}/>
+                                            <TitleWithThreeList key={title} title={title} data={data}/>
                                             )
                                         })
                                     }
@@ -114,7 +114,7 @@ function MatchProfile({teamMode, gameStatData}) {
                                     {
                                         topRateInfo.map(({title, data}) => {
                                             return(
-                                                <TitleWithThreeList title={title} data={`${data}%`} />
+                                                <TitleWithThreeList key={title} title={title} data={`${data}%`} />
                                             )
                                         })
                                     }

@@ -7,6 +7,7 @@ import styles from '../styles/MatchHisotryPage.module.scss';
 import {SEASON} from '../utils/types';
 import {useDispatch, useSelector} from "react-redux";
 import {getGameStats} from '../modules/game';
+import MatchLogList from '../components/MatchLogList';
 
 function MatchHistoryPage({ match, history }) {
     const dispatch = useDispatch();
@@ -65,6 +66,7 @@ function MatchHistoryPage({ match, history }) {
                     teamMode={teamMode}
                     gameStatData={gameStatData}
                 />
+                <MatchLogList />
             </section>
         </>
     )
