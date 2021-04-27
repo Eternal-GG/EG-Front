@@ -6,12 +6,12 @@ import { AVERAGE_MENU, TOP_MENU } from '../utils/types';
 
 const cx = classNames.bind(styles);
 
-function MatchProfile({teamMode, gameStatData}) {
-    const {stats, mmr, loading, error, mostCharacter} = gameStatData;
+function MatchProfile({teamMode, statData}) {
+    const {stats, mmr, loading, error, mostCharacter} = statData;
 
     if (loading) return <div>로딩중...</div>;
     if (error) return <div>error...</div>;
-    if (!gameStatData) return <div>데이터 없음</div>;
+    if (!statData) return <div>데이터 없음</div>;
 
     const makeTeamModeString = teamMode => {
         let teamModeString = 'solo';

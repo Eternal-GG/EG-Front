@@ -8,9 +8,9 @@ import {TIER, UN_RANK} from "../utils/types";
 
 const cx = classNames.bind(styles, commonObject);
 
-function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, teamMode, gameStatData, SEASON, fetchStat, seasonHandler}) {
+function MatchProfileSimple({gameNickname, dropdown, dropdownHandler, season, teamMode, statData, SEASON, fetchStat, seasonHandler}) {
     const {NORMAL, SEASON_1} = SEASON;
-    const {stats, mmr, error} = gameStatData;
+    const {stats, mmr, error} = statData;
     const [tierInfo, setTierInfo] = useState({text: NORMAL, imgSrc:normal});
 
     useEffect(()=>{
