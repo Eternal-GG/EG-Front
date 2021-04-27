@@ -16,7 +16,7 @@ function MatchHistoryPage({ match, history }) {
     const [ season, setSeason ] = useState('일반');
     const [ teamMode, setTeamMode ] = useState(1);
     const { NORMAL, SEASON_1 } = SEASON;
-    const gameStatData = useSelector(state => state.game.statData);
+    const { statData, gamesData } = useSelector(state => state.game);
     // 0은 일반을 뜻함
     const dropdownHandler = () => {
         setDropdown(!dropdown);
@@ -37,6 +37,7 @@ function MatchHistoryPage({ match, history }) {
                 break;
         }
     };
+
     const fetchStat = useCallback(() =>{
         const seasonNumber = seasonStringToNumber(season);
         dispatch(getGameStats({gameNickname, seasonNumber}));
@@ -56,7 +57,7 @@ function MatchHistoryPage({ match, history }) {
                     dropdownHandler={dropdownHandler}
                     season={season}
                     teamMode={teamMode}
-                    gameStatData={gameStatData}
+                    statData={statData}
                     seasonHandler={seasonHandler}
                     fetchStat={fetchStat}
                     SEASON={SEASON}
@@ -64,9 +65,9 @@ function MatchHistoryPage({ match, history }) {
                 <TeamModeMenu setTeamMode={setTeamMode}/>
                 <MatchProfile
                     teamMode={teamMode}
-                    gameStatData={gameStatData}
+                    statData={statData}
                 />
-                <MatchLogList />
+                <MatchLogList gameNickname={gameNickname} gamesData={gamesData} />
             </section>
         </>
     )

@@ -1,12 +1,13 @@
 import React from 'react';
 import './MostCharacter.module.scss';
 import { characterHalfImg } from '../../utils/images';
+import { getCharacterName } from '../../utils/utilFunction';
 
 const MostCharacter = ({ characterCode, topNum, playCount, maxKillCount, top3Percent, styles }) => {
     return(
         <div className={styles}>
             <div>{ topNum }</div>
-            <img src={ characterHalfImg[characterCode] } alt={ characterCode } />
+            <img src={ characterHalfImg[characterCode] } alt={ getCharacterName(characterCode + 1) } />
             <span>플레이 횟수</span>
             <span>{ playCount }</span>
             <span>최대 킬 수</span>

@@ -1,30 +1,77 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from '../styles/MatchLog.module.scss';
+import { characterMiniImg } from '../utils/images';
+import { getCharacterName } from '../utils/utilFunction';
 
 const cx = classNames.bind(styles);
 
-function MatchLog(props) {
+function MatchLog({gameInfo}) {
+    const {
+        matchingTeamMode, seasonId, serverName,
+        characterNum, playerKill, playerAssistant,
+        monsterKill, damageToPlayer, equipment,
+        gameRank, date
+    } = gameInfo;
+
+    const formatDate = (dateStr, type) => {
+        // "YYYY-MM-DD HH:MM~~~", 'YMD' -> return [year, month, day]
+
+        return type === 'YMD' && dateStr.substring(0, 10).split('-')
+    }
+
+    const getPlayDate = () => {
+        // 연, 월, 주, 일 전에 게임을 했는지 시간을 변환하는 함수
+
+        let playDateStr = ''
+        const [curYear, curMonth, curDay] = formatDate(new Date().toISOString(), 'YMD')
+        const [playYear, playMonth, playDay] = formatDate(date, 'YMD')
+
+        if(curYear === playYear) {
+            if(curMonth === playMonth) {
+                if(curDay === playDay) {
+                    playDateStr = `오늘`
+                }else {
+                    playDateStr = (curDay - playDay) >= 7 ?
+                        `${Math.floor((curDay - playDay) / 7)}주 전`
+                        :
+                        `${curDay - playDay}일 전`
+                }
+            }else {
+                playDateStr = `${curMonth - playMonth}개월 전`
+            }
+        }else {
+            playDateStr = `${curYear - playYear}년 전`
+        }
+
+        return playDateStr
+    }
+
     return (
         <article className={cx('MatchLog')}>
             <section>
                 <section className={cx('detail')}>
                     <div className={cx('detailItem')}>
-                        <span>#11</span>
-                        <span>솔로 랭크</span>
-                        <span>4주일 전</span>
-                        <span>Seoul</span>
+                        <span>{`#${gameRank < 1 ? '-' : gameRank}`}</span>
+                        <span>
+                            {
+                            `${matchingTeamMode === 1 ? '솔로' : matchingTeamMode === 2 ? '듀오' : '스쿼드'}
+                             ${!seasonId ? '랭크' : '일반'}`
+                            }
+                        </span>
+                        <span>{ getPlayDate() }</span>
+                        <span>{ serverName }</span>
                     </div>
                     <figure>
-                        <div>캐릭터 이미지</div>
-                        <figcaption>캐시</figcaption>
+                        <img src={characterMiniImg[characterNum - 1]} alt={getCharacterName(characterNum)} style={{objectFit: 'cover', width: 60, height: 60, borderRadius: 50 ,background: 'lightgray'}}/>
+                        <figcaption>{getCharacterName(characterNum)}</figcaption>
                     </figure>
                     <div>
-                        <span>1/0/4</span>
+                        <span>{`${playerKill} / ${playerAssistant} / ${monsterKill}`}</span>
                         <span>K/A/H</span>
                     </div>
                     <div>
-                        <span>2468</span>
+                        <span>{damageToPlayer}</span>
                         <span>딜량</span>
                     </div>
                     <div>
@@ -33,14 +80,14 @@ function MatchLog(props) {
                     </div>
                     <div>
                         <div className={cx('itemList')}>
-                            <div>아이템1</div>
-                            <div>아이템2</div>
-                            <div>아이템3</div>
+                            <div style={{background: 'lightsalmon'}}>{equipment.zero}</div>
+                            <div style={{background: 'lightblue'}}>{equipment.one}</div>
+                            <div style={{background: 'lightyellow'}}>{equipment.two}</div>
                         </div>
                         <div className={cx('itemList')}>
-                            <div>아이템4</div>
-                            <div>아이템5</div>
-                            <div>아이템6</div>
+                            <div style={{background: 'lightgreen'}}>{equipment.three}</div>
+                            <div style={{background: 'lightpink'}}>{equipment.four}</div>
+                            <div style={{background: 'lightseagreen'}}>{equipment.five}</div>
                         </div>
                     </div>
                 </section>
