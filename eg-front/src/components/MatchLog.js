@@ -56,7 +56,7 @@ function MatchLog({gameInfo}) {
                         <span>
                             {
                             `${matchingTeamMode === 1 ? '솔로' : matchingTeamMode === 2 ? '듀오' : '스쿼드'}
-                             ${!seasonId ? '랭크' : '일반'}`
+                             ${seasonId ? '랭크' : '일반'}`
                             }
                         </span>
                         <span>{ getPlayDate() }</span>
@@ -80,14 +80,14 @@ function MatchLog({gameInfo}) {
                     </div>
                     <div>
                         <div className={cx('itemList')}>
-                            <div style={{background: 'lightsalmon'}}>{equipment.zero}</div>
-                            <div style={{background: 'lightblue'}}>{equipment.one}</div>
-                            <div style={{background: 'lightyellow'}}>{equipment.two}</div>
+                            <div style={{background: 'lightsalmon'}}>{equipment.zero === 0 ? '' : equipment.zero}</div>
+                            <div style={{background: 'lightblue'}}>{equipment.one === 0 ? '' : equipment.one}</div>
+                            <div style={{background: 'lightyellow'}}>{equipment.two === 0 ? '' : equipment.two}</div>
                         </div>
                         <div className={cx('itemList')}>
-                            <div style={{background: 'lightgreen'}}>{equipment.three}</div>
-                            <div style={{background: 'lightpink'}}>{equipment.four}</div>
-                            <div style={{background: 'lightseagreen'}}>{equipment.five}</div>
+                            <div style={{background: 'lightgreen'}}>{equipment.three === 0 ? '' : equipment.three}</div>
+                            <div style={{background: 'lightpink'}}>{equipment.four === 0 ? '' : equipment.four}</div>
+                            <div style={{background: 'lightseagreen'}}>{equipment.five === 0 ? '' : equipment.five}</div>
                         </div>
                     </div>
                 </section>

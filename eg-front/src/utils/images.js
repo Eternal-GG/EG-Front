@@ -35,6 +35,7 @@ import HALF_CATHY from '../images/character/half/023_Cathy.png';
 import HALF_ADELA from '../images/character/half/024_Adela.png';
 import HALF_BERNICE from '../images/character/half/025_Bernice.png';
 import HALF_BARBARA from '../images/character/half/026_Barbara.png';
+import HALF_ALEX from '../images/character/half/027_Alex.png';
 
 import MINI_JACKIE from '../images/character/mini/001_Jackie.png';
 import MINI_AYA from '../images/character/mini/002_Aya.png';
@@ -62,19 +63,20 @@ import MINI_CATHY from '../images/character/mini/023_Cathy.png';
 import MINI_ADELA from '../images/character/mini/024_Adela.png';
 import MINI_BERNICE from '../images/character/mini/025_Bernice.png';
 import MINI_BARBARA from '../images/character/mini/026_Barbara.png';
+import MINI_ALEX from '../images/character/mini/027_Alex.png';
 
 const tierImg = [iron, bronze, silver, gold, platinum, diamond, demiGod, eternity];
 
 const characterHalfImg = [
     HALF_JACKIE, HALF_AYA, HALF_FIORA, HALF_MAGNUS, HALF_ZAHIR, HALF_NADINE, HALF_HYUN_WOO, HALF_HART, HALF_ISOL, HALF_LI_DAILIN,
     HALF_YUKI, HALF_HYE_JIN, HALF_XIUKAI, HALF_CHIARA, HALF_SISSELA, HALF_SILVIA, HALF_ADRIANA, HALF_SHOICHI, HALF_EMMA, HALF_LENOX,
-    HALF_ROZZI, HALF_LUKE, HALF_CATHY, HALF_ADELA, HALF_BERNICE, HALF_BARBARA
+    HALF_ROZZI, HALF_LUKE, HALF_CATHY, HALF_ADELA, HALF_BERNICE, HALF_BARBARA, HALF_ALEX
 ];
 
 const characterMiniImg = [
     MINI_JACKIE, MINI_AYA, MINI_FIORA, MINI_MAGNUS, MINI_ZAHIR, MINI_NADINE, MINI_HYUN_WOO, MINI_HART, MINI_ISOL, MINI_LI_DAILIN,
     MINI_YUKI, MINI_HYE_JIN, MINI_XIUKAI, MINI_CHIARA, MINI_SISSELA, MINI_SILVIA, MINI_ADRIANA, MINI_SHOICHI, MINI_EMMA, MINI_LENOX,
-    MINI_ROZZI, MINI_LUKE, MINI_CATHY, MINI_ADELA, MINI_BERNICE, MINI_BARBARA
+    MINI_ROZZI, MINI_LUKE, MINI_CATHY, MINI_ADELA, MINI_BERNICE, MINI_BARBARA, MINI_ALEX
 ];
 
 export {tierImg, normal, unRank, characterHalfImg, characterMiniImg};
