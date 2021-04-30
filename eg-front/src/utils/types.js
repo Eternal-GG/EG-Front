@@ -70,6 +70,17 @@ const TOP5 = 'Top 5';
 const Top7 = 'Top 7';
 const TOP_MENU = [TOP3, TOP5, Top7];
 
+const WEAPON = 'weapon';
+const ARMOR = 'armor';
+
+const COMMON = 'Common';
+const UNCOMMON = 'Uncommon';
+const RARE = 'Rare';
+const EPIC = 'Epic';
+const LEGEND = 'Legend';
+
+const GRADE = {COMMON, UNCOMMON, RARE, EPIC, LEGEND}
+
 export {
     EMAIL,
     TEXT,
@@ -82,5 +93,8 @@ export {
     SEASON,
     UN_RANK,
     AVERAGE_MENU,
-    TOP_MENU
+    TOP_MENU,
+    WEAPON,
+    ARMOR,
+    GRADE
 };

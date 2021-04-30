@@ -24,3 +24,6 @@ yarn-error.log*
 
 #API
 ./src/Config.js
+
+#non essential in website
+./src/bs_data/renameFile.js

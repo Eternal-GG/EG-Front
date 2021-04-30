@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classNames from 'classnames/bind';
 import styles from '../styles/MatchLog.module.scss';
+import '../styles/CommonObject.scss'
 import { characterMiniImg } from '../utils/images';
-import { getCharacterName } from '../utils/utilFunction';
+import { getCharacterName, getItemColor, getItemName } from '../utils/utilFunction';
+import {ARMOR, WEAPON} from "../utils/types";
 
 const cx = classNames.bind(styles);
 
@@ -13,6 +15,7 @@ function MatchLog({gameInfo}) {
         monsterKill, damageToPlayer, equipment,
         gameRank, date
     } = gameInfo;
+    const [loading, setLoading] = useState(false);
 
     const formatDate = (dateStr, type) => {
         // "YYYY-MM-DD HH:MM~~~", 'YMD' -> return [year, month, day]
@@ -45,6 +48,21 @@ function MatchLog({gameInfo}) {
         }
 
         return playDateStr
+    }
+
+    // const connectItemImg = async(itemCode) => {
+    //     // itemCode -> return img src string
+    //
+    //     try {
+    //         const {default:itemImage} = await import(`../images/Item/${itemCode}.png`)
+    //         return itemImage
+    //     } catch (e) {
+    //         console.warn(e)
+    //     }
+    // }
+
+    const getItemPath = (itemCode) => {
+        return require(`../images/Item/${itemCode}.png`).default
     }
 
     return (
@@ -80,14 +98,34 @@ function MatchLog({gameInfo}) {
                     </div>
                     <div>
                         <div className={cx('itemList')}>
-                            <div style={{background: 'lightsalmon'}}>{equipment.zero === 0 ? '' : equipment.zero}</div>
-                            <div style={{background: 'lightblue'}}>{equipment.one === 0 ? '' : equipment.one}</div>
-                            <div style={{background: 'lightyellow'}}>{equipment.two === 0 ? '' : equipment.two}</div>
+                            {
+                                [equipment.zero, equipment.one, equipment.two].map((itemCode, idx) => {
+                                    return itemCode ?
+                                        <img
+                                            key = {itemCode}
+                                            src={getItemPath(itemCode)}
+                                            className={`item_bg ${getItemColor(itemCode, idx > 0 ? ARMOR : WEAPON)}`}
+                                            style={{width: '4em', height: '3em', objectFit:'contain', borderRadius: 10, margin: 1}}
+                                            alt={getItemName(itemCode, idx > 0 ? ARMOR : WEAPON)}/>
+                                        :
+                                        <div key={itemCode + idx} style={{width: '100%', background: 'lightgrey', borderRadius: 10, margin: 1}} />
+                                })
+                            }
                         </div>
                         <div className={cx('itemList')}>
-                            <div style={{background: 'lightgreen'}}>{equipment.three === 0 ? '' : equipment.three}</div>
-                            <div style={{background: 'lightpink'}}>{equipment.four === 0 ? '' : equipment.four}</div>
-                            <div style={{background: 'lightseagreen'}}>{equipment.five === 0 ? '' : equipment.five}</div>
+                            {
+                                [equipment.three, equipment.four, equipment.five].map((itemCode, idx) => {
+                                    return itemCode ?
+                                        <img
+                                            key = {itemCode}
+                                            src={getItemPath(itemCode)}
+                                            className={`item_bg ${getItemColor(itemCode, ARMOR)}`}
+                                            style={{width: '4em', height: '3em', objectFit:'contain', borderRadius: 10, margin: 1}}
+                                            alt={getItemName(itemCode, ARMOR)}/>
+                                        :
+                                        <div key={itemCode + idx} style={{width: '100%', background: 'lightgrey', borderRadius: 10, margin: 1}} />
+                                })
+                            }
                         </div>
                     </div>
                 </section>
