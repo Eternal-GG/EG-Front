@@ -2,3 +2,6 @@
 eg-front/.eslintcache
 
 eg-front/src/Config.js
+
+#non essential in website
+eg-front/src/bs_data/renameFile.js

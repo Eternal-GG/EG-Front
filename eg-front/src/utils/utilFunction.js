@@ -1,3 +1,8 @@
+import armorData from '../bs_data/ItemArmor.json'
+import weaponData from '../bs_data/ItemWeapon.json'
+import {WEAPON, ARMOR} from "./types";
+
+/* About Character */
 export const getCharacterName = (number) => {
     switch (number) {
         case 1:
@@ -53,6 +58,40 @@ export const getCharacterName = (number) => {
         case 26:
             return '바바라';
         default:
+            break;
+    }
+}
+
+/* About Item */
+const { data: weaponDatas } = weaponData
+const { data: armorDatas } = armorData
+const indexOfItem = (itemCode, data) => {
+    // (itemCode, data) => return index
+    return data.findIndex(item => item.code === itemCode)
+}
+
+export const getItemColor = (itemCode, type=null) => {
+    // (itemCode, type:option) => return grade
+    switch (type) {
+        case WEAPON:
+            return weaponDatas[indexOfItem(itemCode, weaponDatas)].itemGrade
+        case ARMOR:
+            return armorDatas[indexOfItem(itemCode, armorDatas)].itemGrade
+        default:
+            console.warn(`No type!`)
+            break;
+    }
+}
+
+export const getItemName = (itemCode, type=null) => {
+    // (itemCode, type:option) => return name
+    switch (type) {
+        case WEAPON:
+            return weaponDatas[indexOfItem(itemCode, weaponDatas)].name
+        case ARMOR:
+            return armorDatas[indexOfItem(itemCode, armorDatas)].name
+        default:
+            console.warn(`No type!`)
             break;
     }
 }

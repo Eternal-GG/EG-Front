@@ -9,9 +9,31 @@
   }
 }
 
+@mixin item-bg-color($color-top, $color-bottom){
+  background: linear-gradient(180deg, $color-top, $color-bottom);
+}
+
 .btn{
   &.yellow{
     @include button-color($mainYellow, gray, $mainOrange, white)
+  }
+}
+
+.item_bg {
+  &.Common {
+    @include item-bg-color(gray, lightgrey)
+  }
+  &.Uncommon {
+    @include item-bg-color(#455e3d, #66b367)
+  }
+  &.Rare {
+    @include item-bg-color(#485f8a, #8aaceb)
+  }
+  &.Epic {
+    @include item-bg-color(#624873, #c68aeb)
+  }
+  &.Legend {
+    @include item-bg-color(#947b40, #e3b240)
   }
 }
 

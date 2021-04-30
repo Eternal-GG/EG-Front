@@ -65,6 +65,30 @@ import MINI_BERNICE from '../images/character/mini/025_Bernice.png';
 import MINI_BARBARA from '../images/character/mini/026_Barbara.png';
 import MINI_ALEX from '../images/character/mini/027_Alex.png';
 
+// import ARMOR_201101 from '../images/Item/201101.png'
+// import ARMOR_201102 from '../images/Item/201102.png'
+// import ARMOR_201104 from '../images/Item/201104.png'
+// import ARMOR_201201 from '../images/Item/201201.png'
+// import ARMOR_201202 from '../images/Item/201202.png'
+// import ARMOR_201203 from '../images/Item/201203.png'
+// import ARMOR_201204 from '../images/Item/201204.png'
+// import ARMOR_201205 from '../images/Item/201205.png'
+// import ARMOR_201301 from '../images/Item/201301.png'
+// import ARMOR_201302 from '../images/Item/201302.png'
+// import ARMOR_201303 from '../images/Item/201303.png'
+// import ARMOR_201401 from '../images/Item/201401.png'
+// import ARMOR_201402 from '../images/Item/201402.png'
+// import ARMOR_201403 from '../images/Item/201403.png'
+// import ARMOR_201404 from '../images/Item/201404.png'
+// import ARMOR_201405 from '../images/Item/201405.png'
+// import ARMOR_201406 from '../images/Item//201406.png'
+// import ARMOR_201407 from '../images/Item/201407.png'
+// import ARMOR_201408 from '../images/Item/201408.png'
+// import ARMOR_201409 from '../images/Item/201409.png'
+// import ARMOR_201410 from '../images/Item/201410.png'
+// import ARMOR_201411 from '../images/Item/201411.png'
+// import ARMOR_201501 from '../images/Item/201501.png'
+
 const tierImg = [iron, bronze, silver, gold, platinum, diamond, demiGod, eternity];
 
 const characterHalfImg = [
@@ -78,5 +102,13 @@ const characterMiniImg = [
     MINI_YUKI, MINI_HYE_JIN, MINI_XIUKAI, MINI_CHIARA, MINI_SISSELA, MINI_SILVIA, MINI_ADRIANA, MINI_SHOICHI, MINI_EMMA, MINI_LENOX,
     MINI_ROZZI, MINI_LUKE, MINI_CATHY, MINI_ADELA, MINI_BERNICE, MINI_BARBARA, MINI_ALEX
 ];
+
+// const ARMOR = {
+//     ARMOR_201101, ARMOR_201102, ARMOR_201104, ARMOR_201201, ARMOR_201202,
+//     ARMOR_201203, ARMOR_201204, ARMOR_201205, ARMOR_201301, ARMOR_201302,
+//     ARMOR_201303, ARMOR_201401, ARMOR_201402, ARMOR_201403, ARMOR_201404,
+//     ARMOR_201405, ARMOR_201406, ARMOR_201407, ARMOR_201408, ARMOR_201409,
+//     ARMOR_201410, ARMOR_201411, ARMOR_201501
+// }
 
 export {tierImg, normal, unRank, characterHalfImg, characterMiniImg};
