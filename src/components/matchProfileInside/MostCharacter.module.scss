@@ -1,9 +1,89 @@
+@import '../../styles/colors';
+
+@mixin rank_number{
+  position: absolute;
+  color: $mainWhite;
+  font-size: 0.7em;
+  font-weight: bold;
+
+  /* make triangle shape */
+  width: 0;
+  height: 0;
+  border-top-width: 3em;
+  border-top-style: solid;
+  border-right: 3em solid transparent;
+}
+
+@mixin rank_number_order_before {
+  color: $mainWhite;
+  position: absolute;
+  top: -31px;
+  left: 8px
+}
+
 span{
   display: block;
 }
-img{
-  width: 180px;
-}
+
 div{
   flex-basis: 25%;
+}
+.div__most_info {
+  background: linear-gradient(180deg, $mainWhite, $mainBrown);
+  border: 1px solid lightgrey;
+  color: $mainWhite;
+  padding-bottom: 0.8em;
+
+  .span__rank_number {
+    @include rank_number;
+
+    &.first {
+      border-top-color: gold;
+    }
+    &.first:before {
+      @include rank_number_order_before;
+      content: "1";
+    }
+
+    &.second {
+      border-top-color: silver;
+    }
+
+    &.second:before {
+      @include rank_number_order_before;
+      content: "2";
+    }
+
+
+    &.third {
+      border-top-color: #d26b5d;
+    }
+    &.third:before {
+      @include rank_number_order_before;
+      content: "3";
+    }
+
+  }
+  img{
+    width: 150px;
+    height: 200px;
+    object-position: top;
+    border-bottom: solid rgba(108,81,58,0.1);
+    margin-bottom: 0.4em;
+  }
+
+  .span__menu {
+    font-size: 0.8em;
+    margin-bottom: 0.3em;
+  }
+
+  .span__number {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0.4em;
+  }
+  & + &{
+    margin-left: 20px;
+  }
+
 }

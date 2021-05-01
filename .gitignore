@@ -1,8 +1,5 @@
 .idea/
-eg-front/.eslintcache
-
-#non essential in website
-eg-front/src/bs_data/renameFile.js
+.eslintcache/
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 

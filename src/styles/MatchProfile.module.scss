@@ -1,22 +1,43 @@
 @import 'colors';
+@mixin contents($basis) {
+  flex-basis: $basis;
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin div__number($size) {
+  font-size: $size;
+  font-weight: bold;
+  color: black;
+  padding: 0.5em;
+}
+
+@mixin div__menu($size, $color) {
+  padding: 0.5em;
+  font-size: $size;
+  color: $color;
+}
+
 .MatchProfile{
-  background: $mainWhite;
   box-sizing: border-box;
-  padding: 2em;
   width: 1200px;
   margin-bottom: 1rem;
-  border: 1px solid lightgrey;
+
   section{
     display: flex;
+  }
+  .contents_left {
+    @include contents(40%);
+    margin-right: 2%;
     text-align: center;
   }
-  .contents{
-    flex-basis: 50%;
-    display: flex;
-    flex-direction: column;
+  .contents_right {
+    @include contents(58%);
   }
   .image-list{
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .div-wrapper-flex{
     display: flex;
@@ -29,5 +50,40 @@
   }
   .div-basis50{
     flex-basis: 50%;
+  }
+  .div_header {
+    text-align: center;
+    background: $mainBrown;
+    color: $mainWhite;
+    padding: 0.7em;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+  }
+  .div__main_row {
+    flex-basis: 33%;
+    padding-bottom: 0.2em ;
+    background: $mainWhite;
+    border : 1px solid lightgrey;
+
+    &.div__margin {
+      margin-bottom: 0.8em;
+    }
+  }
+  .div__menu_left_top {
+    @include div__menu(0.9em, $mainGray);
+  }
+  .div__number_left_top {
+    @include div__number(1.8em)
+  }
+  .div__menu_big {
+    @include div__menu(0.9em, $mainWhite);
+
+    background: $mainOrange-dark;
+  }
+  .div__menu_small {
+    @include div__menu(0.8em, $mainGray);
+  }
+  .div__number {
+    @include div__number(1em)
   }
 }

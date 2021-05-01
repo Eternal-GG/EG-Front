@@ -1,3 +1,10 @@
+@import '../../styles/MatchProfile.module';
 .TitleWithThreeList{
   flex-basis: 33%;
+  .div__number {
+    @include div__number(1em)
+  }
+  .div__menu_small {
+    @include div__menu(0.8em, $mainGray);
+  }
 }
