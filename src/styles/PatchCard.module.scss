@@ -1,0 +1,20 @@
+@import "colors";
+.patchCard {
+  width: 1200px;
+  min-height: 150px;
+  background: url('../images/patch1.jpg');
+  background-position: center;
+  border: solid lightgrey 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+
+  span {
+    color: $mainWhite;
+    font-size: 2em;
+    font-weight: bold;
+    background: rgba(0,0,0,0.5);
+  }
+}

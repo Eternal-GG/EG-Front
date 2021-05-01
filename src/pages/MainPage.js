@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 
 import Header from '../components/Header';
 import ImgSearch from '../components/ImgSearch';
+import PatchCard from '../components/PatchCard';
 
 function MainPage({history}) {
     const [input, setInput] = useState('');
@@ -15,7 +16,9 @@ function MainPage({history}) {
         <>
             <Header history={history}/>
             <ImgSearch onChangeHandler={onChangeHandler} onSearchHandler={onSearchHandler} />
-            <h1>Main Page</h1>
+            <div style={{background: 'rgba(255, 208, 68, 0.2)', minHeight: '100vh', display:"flex", alignItems:'center', flexDirection:'column'}}>
+                <PatchCard />
+            </div>
         </>
     );
 };
