@@ -30,7 +30,7 @@ function MatchLogList({ gameNickname, gamesData }) {
             {
                 data.map((gameInfo) => {
                     return(
-                        <MatchLog key={gameInfo.gameID} gameInfo={gameInfo} />
+                        <MatchLog gameInfo={gameInfo} />
                     )
                 })
             }

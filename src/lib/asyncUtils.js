@@ -1,24 +1,24 @@
 const teamNull = {solo: null, duo: null, squad: null};
 
 export const reducerUtilsStats = {
-    initial: (initialData = null) => ({
+    initial: () => ({
         loading: true,
-        stats: initialData,
         mmr: {...teamNull},
         mostCharacter: {...teamNull},
+        restInfo: {...teamNull},
         error: null
     }),
-    loading: (prevState = null) => ({
-        stats: prevState,
+    loading: () => ({
         mmr: {...teamNull},
         mostCharacter: {...teamNull},
+        restInfo: {...teamNull},
         loading: true,
         error: null
     }),
-    success: ({data, mmrInfo, mostCharacterInfo}) => ({
-        stats: data,
+    success: ({mmrInfo, mostCharacterInfo, restInfo}) => ({
         mmr: mmrInfo,
         mostCharacter: mostCharacterInfo,
+        restInfo,
         loading: false,
         error: null,
     }),
@@ -26,8 +26,9 @@ export const reducerUtilsStats = {
         stats: null,
         mmr: {...teamNull},
         mostCharacter: {...teamNull},
+        restInfo: {...teamNull},
         loading: false,
-        error
+        error:error.message,
     })
 };
 

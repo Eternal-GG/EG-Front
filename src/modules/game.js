@@ -19,28 +19,44 @@ const classifyStat = data => {
     }
     let mmrInfo = {...initialInfo};
     let mostCharacterInfo = {...initialInfo};
+    let restInfo = {...initialInfo}
 
-    data.forEach(item => {
-        const {matchingTeamMode, characterStat, mmr} = item;
+    data && data.forEach(item => {
+        const {
+            matchingTeamMode, characterStat, mmr, averageKills, averageAssistants,
+            averageHunts, averageRank, totalGames, totalWins, top3, top5, top7
+        } = item;
         switch (matchingTeamMode) {
             case 1:
                 mmrInfo = {...mmrInfo, solo: mmr};
                 mostCharacterInfo = {...mostCharacterInfo, solo: characterStat};
+                restInfo = {
+                    ...restInfo,
+                    solo: {averageKills, averageAssistants, averageHunts, averageRank, totalGames, totalWins, top3, top5, top7}
+                };
                 break;
             case 2:
                 mmrInfo = {...mmrInfo, duo: mmr};
                 mostCharacterInfo = {...mostCharacterInfo, duo: characterStat};
+                restInfo = {
+                    ...restInfo,
+                    duo: {averageKills, averageAssistants, averageHunts, averageRank, totalGames, totalWins, top3, top5, top7}
+                };
                 break;
             case 3:
                 mmrInfo = {...mmrInfo, squad: mmr};
                 mostCharacterInfo = {...mostCharacterInfo, squad: characterStat};
+                restInfo = {
+                    ...restInfo,
+                    squad: {averageKills, averageAssistants, averageHunts, averageRank, totalGames, totalWins, top3, top5, top7}
+                }
                 break;
             default:
                 break;
         }
     })
 
-    return {mmrInfo, mostCharacterInfo};
+    return {mmrInfo, mostCharacterInfo, restInfo};
 };
 
 export const getGameStats = ({gameNickname, seasonNumber}) => async dispatch => {
@@ -56,7 +72,7 @@ export const getGameStats = ({gameNickname, seasonNumber}) => async dispatch => 
 
         dispatch({
             type: GET_STATS_SUCCESS,
-            payload: {...classifiedStat, data}
+            payload: {...classifiedStat}
         });
     }catch (e) {
         // 실패했을 때

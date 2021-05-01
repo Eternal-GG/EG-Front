@@ -133,7 +133,7 @@ function MatchLog({gameInfo}) {
                                             title={getItemName(itemCode, idx > 0 ? ARMOR : WEAPON)}
                                         />
                                         :
-                                        <div key={itemCode} className={cx('div__item_empty')} />
+                                        <div key={itemCode + idx} className={cx('div__item_empty')} />
                                 })
                             }
                         </div>
