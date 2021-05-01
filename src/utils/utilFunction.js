@@ -57,6 +57,10 @@ export const getCharacterName = (number) => {
             return '버니스';
         case 26:
             return '바바라';
+        case 27:
+            return '알렉스';
+        case 28:
+            return '수아';
         default:
             break;
     }
