@@ -1,6 +1,14 @@
+@import 'colors';
 .Btn__more {
   width: 100%;
   padding: 1em;
   margin-bottom: 20px;
   border: 1px solid lightgrey;
+}
+.div__title_log {
+  margin-bottom: 0.5em;
+  background: $mainBrown;
+  color: $mainWhite;
+  padding: 0.7em;
+  font-size: 0.9em;
 }

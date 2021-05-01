@@ -26,7 +26,7 @@ function MatchLogList({ gameNickname, gamesData }) {
 
     return (
         <>
-            <div>게임 전적</div>
+            <div className={`${styles.div__title_log}`}>게임 전적</div>
             {
                 data.map((gameInfo) => {
                     return(
