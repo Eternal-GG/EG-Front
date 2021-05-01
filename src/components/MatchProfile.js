@@ -7,10 +7,10 @@ import { AVERAGE_MENU, TOP_MENU } from '../utils/types';
 const cx = classNames.bind(styles);
 
 function MatchProfile({teamMode, statData}) {
-    const {stats, mmr, loading, error, mostCharacter} = statData;
+    const {mmr, loading, error, mostCharacter, restInfo} = statData;
 
     if (loading) return <div>로딩중...</div>;
-    if (error) return <div>error...</div>;
+    if (error) return <div>데이터 못 찾음</div>;
     if (!statData) return <div>데이터 없음</div>;
 
     const makeTeamModeString = teamMode => {
@@ -34,9 +34,10 @@ function MatchProfile({teamMode, statData}) {
     const {
             averageKills, averageAssistants, averageHunts,
             averageRank, totalGames, totalWins, top3, top5, top7
-        } = stats[teamMode - 1];
+        } = restInfo[teamModeString] || {};
 
-    //TODO stats[teamMode - 1]이 없을 때 에러남남
+    // TODO 솔로, 듀오, 스쿼드 중 하나도 기록이 없을 때 user not found error 메세지 오고 error 처리되는데
+    // 이걸 어떻게 더 잘 처리할지 생각해보기
 
    const averageInfo = [
         { title: AVERAGE_MENU[0], data: averageKills },
