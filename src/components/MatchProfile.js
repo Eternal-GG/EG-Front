@@ -36,7 +36,9 @@ function MatchProfile({teamMode, statData}) {
             averageRank, totalGames, totalWins, top3, top5, top7
         } = stats[teamMode - 1];
 
-    const averageInfo = [
+    //TODO stats[teamMode - 1]이 없을 때 에러남남
+
+   const averageInfo = [
         { title: AVERAGE_MENU[0], data: averageKills },
         { title: AVERAGE_MENU[1], data: averageAssistants },
         { title: AVERAGE_MENU[2], data: averageHunts }
@@ -67,57 +69,74 @@ function MatchProfile({teamMode, statData}) {
                                         )
                                 })
                             }
+                            {
+                                !mostCharacter[teamModeString] &&
+                                <div style={{background: '#fcfcfc', border: '1px solid lightgray', padding: '1em', flexBasis: '100%'}}>{`${teamModeString} 자주 쓰는 캐릭터 데이터 없음`}</div>
+                            }
                         </div>
                     </div>
                     <div className={cx('contents_right')}>
                             <span className={cx('div_header')} >전투통계</span>
+                        {
+                            mmr[teamModeString] &&
                             <div className={cx('div__main_row', 'div__margin', 'div-wrapper-flex')}>
-                                <div className={cx('div-basis25')}>
-                                    <span className={cx('div__menu_left_top')}>MMR</span>
-                                    <span className={cx('div__number_left_top')}>{ mmr[teamModeString] }</span>
-                                </div>
-                                <div className={cx('div-basis25')}>
-                                    <span className={cx('div__menu_left_top')}>평균 순위</span>
-                                    <span className={cx('div__number_left_top')}>{ averageRank }</span>
-                                </div>
-                                <div className={cx('div-basis50')}>
-                                    <span className={cx('div__menu_big')}>플레이</span>
-                                    <div className={cx('div-wrapper-flex')}>
-                                        <div className={cx('div-basis50')}>
-                                            <span className={cx('div__menu_small')}>플레이 횟수</span>
-                                            <span className={cx('div__number')}>{ totalGames }</span>
-                                        </div>
-                                        <div className={cx('div-basis50')}>
-                                            <span className={cx('div__menu_small')}>승리 횟수</span>
-                                            <span className={cx('div__number')}>{ totalWins }</span>
-                                        </div>
+                            <div className={cx('div-basis25')}>
+                                <span className={cx('div__menu_left_top')}>MMR</span>
+                                <span className={cx('div__number_left_top')}>{mmr[teamModeString]}</span>
+                            </div>
+                            <div className={cx('div-basis25')}>
+                                <span className={cx('div__menu_left_top')}>평균 순위</span>
+                                <span className={cx('div__number_left_top')}>{averageRank}</span>
+                            </div>
+                            <div className={cx('div-basis50')}>
+                                <span className={cx('div__menu_big')}>플레이</span>
+                                <div className={cx('div-wrapper-flex')}>
+                                    <div className={cx('div-basis50')}>
+                                        <span className={cx('div__menu_small')}>플레이 횟수</span>
+                                        <span className={cx('div__number')}>{totalGames}</span>
+                                    </div>
+                                    <div className={cx('div-basis50')}>
+                                        <span className={cx('div__menu_small')}>승리 횟수</span>
+                                        <span className={cx('div__number')}>{totalWins}</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className={cx('div__main_row', 'div__margin', 'div-basis33')}>
-                                <span className={cx('div__menu_big')}>평균</span>
-                                <div className={cx('div-wrapper-flex')}>
-                                    {
-                                        averageInfo.map(({title, data}) => {
-                                            return(
-                                                <TitleWithThreeList key={title} title={title} data={data}/>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </div>
-                            <div className={cx('div__main_row', 'div-basis33')}>
-                                <span className={cx('div__menu_big')}>상위권 비율</span>
-                                <div className={cx('div-wrapper-flex')}>
-                                    {
-                                        topRateInfo.map(({title, data}) => {
-                                            return(
-                                                <TitleWithThreeList key={title} title={title} data={`${data}%`} />
-                                            )
-                                        })
-                                    }
-                                </div>
                         </div>
+                        }
+                        {
+                            mmr[teamModeString] &&
+                            <div className={cx('div__main_row', 'div__margin', 'div-basis33')}>
+                            <span className={cx('div__menu_big')}>평균</span>
+                            <div className={cx('div-wrapper-flex')}>
+                                {
+                                    averageInfo.map(({title, data}) => {
+                                        return (
+                                            <TitleWithThreeList key={title} title={title} data={data}/>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        }
+                        {
+                            mmr[teamModeString] &&
+                            <div className={cx('div__main_row', 'div-basis33')}>
+                            <span className={cx('div__menu_big')}>상위권 비율</span>
+                            <div className={cx('div-wrapper-flex')}>
+                                {
+                                    topRateInfo.map(({title, data}) => {
+                                        return (
+                                            <TitleWithThreeList key={title} title={title} data={`${data}%`}/>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        }
+                        {
+                            !mmr[teamModeString] &&
+                            <div style={{background: '#fcfcfc', border: '1px solid lightgray', padding: '1em', textAlign: 'center'}}>{`${teamModeString} 전투통계 데이터 없음`}</div>
+                        }
                     </div>
                 </section>
             </article>
