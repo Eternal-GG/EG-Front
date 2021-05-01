@@ -1,11 +1,13 @@
 @import 'colors';
+$topOneGreen : #83c284;
+$topTwoThreeBlue : #68b1c2;
 
 .MatchLog {
   background: $mainWhite;
   box-sizing: border-box;
   width: 100%;
-  border: solid lightgrey;
-  border-width: 1px 1px 0 1px;
+  border: 1px solid lightgrey;
+  margin-bottom: 0.5em;
 
   section {
     display: flex;
@@ -15,15 +17,108 @@
     display: flex;
     width: 99%;
     box-sizing: border-box;
-    padding: 2em 0 2em 2em;
+    padding: 1em 0 1em 1em;
+    border-left: 15px solid #efefef;
+    align-items: center;
+    font-size: 0.9em;
+
+    &.border_left__green {
+      border-left-color: $topOneGreen;
+    }
+    &.border_left__blue {
+      border-left-color: $topTwoThreeBlue;
+    }
+
+    figure {
+      text-align: center;
+      font-size: 0.8em;
+      color: dimgray;
+      padding-right: 1.5em;
+    }
+    figure img{
+      object-fit: cover;
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      background: lightgray;
+      margin-bottom: 0.2em;
+    }
+
+    .div__kah {
+      display: flex;
+    }
+    .span__data {
+      font-weight: bold;
+      margin-right: 0.1em;
+      margin-left: 0.1em;
+    }
+    .span__data_name {
+      color: dimgray;
+    }
   }
 
   .detailItem {
-    //background: tomato;
+    span {
+      margin-bottom: 0.2em;
+    }
+
+    .span__rank_num {
+      font-weight: bold;
+      font-size: 1em;
+      color: dimgray;
+    }
+    .span__rank_num_green {
+      color: $topOneGreen;
+    }
+    .span__rank_num_blue {
+      color: $topTwoThreeBlue;
+    }
+    .span__play_date {
+      color: dimgray;
+    }
+    .span__server_name {
+      width: fit-content;
+      font-size: 0.8em;
+      font-weight: bold;
+      padding: 0.1em 0.3em 0.1em 0.3em;
+      border-radius: 5px;
+      background: #ccc;
+      color: white;
+    }
   }
 
   .itemList {
     display: flex;
     flex-direction: row;
+
+    img {
+      width: 55px;
+      height: 3em;
+      object-fit: contain;
+      border-radius: 10px;
+      margin: 1px
+    }
+
+    .div__item_empty {
+      width: 55px;
+      border-radius: 10px;
+      margin: 1px;
+      background:lightgrey;
+    }
+  }
+
+  .btn__drop_down {
+    color: gray;
+    font-size: 0.6em;
+    font-weight: bold;
+
+    &.btn__drop_down_green{
+      background: $topOneGreen;
+      color: $mainWhite;
+    }
+    &.btn__drop_down_blue{
+      background: $topTwoThreeBlue;
+      color: $mainWhite;
+    }
   }
 }
