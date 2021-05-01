@@ -49,8 +49,8 @@ function MatchProfile({teamMode, statData}) {
     return(
             <article className={cx('MatchProfile')}>
                 <section>
-                    <div className={cx('contents')}>
-                        <span>자주 쓰는 캐릭터</span>
+                    <div className={cx('contents_left')}>
+                        <span className={cx('div_header')}>자주 쓰는 캐릭터</span>
                         <div className={cx('image-list')}>
                             {
                                 mostCharacter[teamModeString] &&
@@ -69,47 +69,45 @@ function MatchProfile({teamMode, statData}) {
                             }
                         </div>
                     </div>
-                    <div className={cx('contents')}>
-                        <div className={cx('div-basis33')}>
-                            <span>전투통계</span>
-                            <div className={cx('div-wrapper-flex')}>
+                    <div className={cx('contents_right')}>
+                            <span className={cx('div_header')} >전투통계</span>
+                            <div className={cx('div__main_row', 'div__margin', 'div-wrapper-flex')}>
                                 <div className={cx('div-basis25')}>
-                                    <span>MMR</span>
-                                    <span>{ mmr[teamModeString] }</span>
+                                    <span className={cx('div__menu_left_top')}>MMR</span>
+                                    <span className={cx('div__number_left_top')}>{ mmr[teamModeString] }</span>
                                 </div>
                                 <div className={cx('div-basis25')}>
-                                    <span>평균 순위</span>
-                                    <span>{ averageRank }</span>
+                                    <span className={cx('div__menu_left_top')}>평균 순위</span>
+                                    <span className={cx('div__number_left_top')}>{ averageRank }</span>
                                 </div>
                                 <div className={cx('div-basis50')}>
-                                    <span>플레이</span>
+                                    <span className={cx('div__menu_big')}>플레이</span>
                                     <div className={cx('div-wrapper-flex')}>
                                         <div className={cx('div-basis50')}>
-                                            <span>플레이 횟수</span>
-                                            <span>{ totalGames }</span>
+                                            <span className={cx('div__menu_small')}>플레이 횟수</span>
+                                            <span className={cx('div__number')}>{ totalGames }</span>
                                         </div>
                                         <div className={cx('div-basis50')}>
-                                            <span>승리 횟수</span>
-                                            <span>{ totalWins }</span>
+                                            <span className={cx('div__menu_small')}>승리 횟수</span>
+                                            <span className={cx('div__number')}>{ totalWins }</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                            <div className={cx('div-basis33')}>
-                                <span>평균</span>
+                            <div className={cx('div__main_row', 'div__margin', 'div-basis33')}>
+                                <span className={cx('div__menu_big')}>평균</span>
                                 <div className={cx('div-wrapper-flex')}>
                                     {
                                         averageInfo.map(({title, data}) => {
                                             return(
-                                            <TitleWithThreeList key={title} title={title} data={data}/>
+                                                <TitleWithThreeList key={title} title={title} data={data}/>
                                             )
                                         })
                                     }
                                 </div>
                             </div>
-                            <div className={cx('div-basis33')}>
-                                <span>상위권 비율</span>
+                            <div className={cx('div__main_row', 'div-basis33')}>
+                                <span className={cx('div__menu_big')}>상위권 비율</span>
                                 <div className={cx('div-wrapper-flex')}>
                                     {
                                         topRateInfo.map(({title, data}) => {
