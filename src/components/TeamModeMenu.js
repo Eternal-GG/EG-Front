@@ -67,7 +67,7 @@ const TeamModeMenu = ({ setTeamMode }) => {
                     name={name}
                     text={text}
                     onClickHandler={onClickHandler}
-                    menuItemStyle={`${styleArray[id - 1] && btn_active}`}
+                    menuItemStyle={`${style.btn} ${styleArray[id - 1] && btn_active}`}
                 />
                 )}
         </section>

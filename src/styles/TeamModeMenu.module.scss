@@ -1,3 +1,11 @@
+@import 'colors';
+.btn {
+  background: $mainYellow;
+  width: 4em;
+  color: gray;
+  padding: 0.5em;
+}
 .btn_active{
-  background: tomato;
+  background: $mainBrown;
+  color: $mainWhite;
 }
