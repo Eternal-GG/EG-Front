@@ -49,5 +49,3 @@ function Header({history}) {
 }
 
 export default Header;
-
-// todo 그냥 토큰값 존재 유무만 확인하면 되는지 아니면 한 번 검증 해야되는지 알아보기
