@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import styles from '../styles/RegisterForm.module.scss';
 import classNames from "classnames/bind";
 
-import logo from "../images/EzggLogo.svg";
+import logo from "../images/EzggLogo.png";
 import InputItem from "./InputItem";
 import {
     EMAIL,

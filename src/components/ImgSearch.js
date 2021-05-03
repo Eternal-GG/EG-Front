@@ -1,17 +1,19 @@
 import React from "react";
 import styles from "../styles/ImgSearch.module.scss";
 import classNames from "classnames/bind";
-import { BiSearch } from 'react-icons/bi';
+
+import SearchBox from "./SearchBox";
 
 const cx = classNames.bind(styles);
+const SEARCH_BOX_STYLE = 'search-box__in_img';
 
 function ImgSearch({onChangeHandler, onSearchHandler}) {
     return(
         <div className={cx('img-box')}>
-            <div className={cx('search-box')}>
-                <input type="text" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
-                <button><BiSearch className={cx('icon')} onClick={onSearchHandler}/></button>
-            </div>
+            <SearchBox
+                searchBoxStyle={SEARCH_BOX_STYLE}
+                onChangeHandler={onChangeHandler}
+                onSearchHandler={onSearchHandler} />
         </div>
     );
 }
