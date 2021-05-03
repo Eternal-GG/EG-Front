@@ -1,0 +1,73 @@
+@import './colors';
+
+@mixin search-box($size, $bg-color) {
+  display: flex;
+  background: $bg-color;
+  padding: 5px 5px;
+  height: 25px;
+  margin-right: 30px;
+
+  input{
+    width: $size;
+    border: 0;
+    background: rgba(0,0,0,0);
+    font-size: 14px;
+  }
+  input:not(:valid) ~ .close-icon {
+    display: none;
+  }
+
+  button{
+    border: 0;
+    background: rgba(0,0,0,0);
+
+    .icon{
+      display: block;
+      color: gray;
+      width: 20px;
+      height: 20px;
+    }
+    @media only screen and (any-hover: hover) {
+      .icon:hover{
+        color: $mainOrange;
+      }
+    }
+  }
+}
+
+@mixin close-icon($close-bg-color, $close-text-color) {
+  .close-icon {
+    border:1px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+  }
+  .close-icon:after {
+    content: "X";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: $close-bg-color;
+    z-index:1;
+    margin: auto;
+    padding: 2px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 9px;
+    color: $close-text-color;
+    font-weight: normal;
+    box-shadow: 0 0 2px $mainOrange-dark;
+    cursor: pointer;
+  }
+}
+
+.search-box__in_header{
+ @include search-box(200px, $mainYellow);
+  @include close-icon($mainWhite, $mainOrange);
+}
+.search-box__in_img {
+  @include search-box(576px,$mainWhite);
+  @include close-icon($mainOrange, $mainWhite);
+}

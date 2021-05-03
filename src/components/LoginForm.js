@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../images/EzggLogo.svg';
+import logo from '../images/EzggLogo.png';
 import {Link} from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from '../styles/LoginForm.module.scss';

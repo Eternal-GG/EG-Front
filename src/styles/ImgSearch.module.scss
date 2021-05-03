@@ -2,40 +2,8 @@
   background-image: url("../images/mainImg.jpg");
   height: 270px;
   box-sizing: border-box;
-  padding: 115px 672px;
 
-  .search-box{
-    //position: relative;
-    //top: 50%;
-    //left: 35%;
-    box-sizing: border-box;
-
-    background: white;
-    padding: 10px 10px;
-    height: 40px;
-    width: 576px;
-
-    input{
-      padding: 0px;
-      height: 20px;
-      width: 515px;
-      background: rgba(0,0,0,0);
-      margin-right: 5px;
-      font-size: 20px;
-    }
-
-    button{
-      background: rgba(0,0,0,0);
-      .icon{
-        display: block;
-        color: gray;
-        width: 20px;
-        height: 20px;
-
-        &:hover{
-          color: orange;
-        }
-      }
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

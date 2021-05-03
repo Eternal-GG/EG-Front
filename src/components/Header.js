@@ -4,21 +4,21 @@ import classNames from 'classnames/bind';
 import styles from '../styles/Header.module.scss';
 import commonObject from '../styles/CommonObject.scss';
 
-import { BiSearch } from 'react-icons/bi';
-
-import logo from '../images/EzggLogo.svg';
+import logo from '../images/EzggLogo.png';
 import Profile from "./Profile";
 import {logoutUser} from "../modules/auth";
 import {useDispatch} from "react-redux";
+import SearchBox from "./SearchBox";
 
 const cx = classNames.bind(styles, commonObject);
+const SEARCH_BOX_STYLE = 'search-box__in_header';
 
 function Header({history}) {
     const [input, setInput] = useState('');
     const dispatch = useDispatch();
     const onChangeHandler = e => {setInput(e.currentTarget.value);};
     const onSearchHandler = () => {
-        history.push(`/bs/player/${input}`);
+        (input.length > 0) && history.push(`/bs/player/${input}`);
     };
     const onClickHandler = () =>{
         dispatch(logoutUser());
@@ -27,16 +27,13 @@ function Header({history}) {
     };
     return(
         <header>
-            <div className={cx('content-left')}>
+            <nav className={cx('content-left')}>
                 <Link to="/"><img src={logo} alt='logo' /></Link>
-                <div>자유게시판</div>
-                <div>랭커 통계</div>
-            </div>
+                <span>자유게시판</span>
+                <span>랭커 통계</span>
+            </nav>
             <div className={cx('content-right')}>
-                <div className={cx('search-box')}>
-                    <input type="text" onChange={onChangeHandler} onKeyPress={e => {if(e.code === 'Enter') onSearchHandler()}}/>
-                    <button><BiSearch className={cx('icon')} onClick={onSearchHandler}/></button>
-                </div>
+                <SearchBox searchBoxStyle={SEARCH_BOX_STYLE} onChangeHandler={onChangeHandler} onSearchHandler={onSearchHandler} />
                 {
                     localStorage.getItem('token') ?
                         <Profile cx={cx} onClickHandler={onClickHandler}/>
