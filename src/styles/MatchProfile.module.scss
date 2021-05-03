@@ -20,7 +20,8 @@
 
 .MatchProfile{
   box-sizing: border-box;
-  width: 1200px;
+  max-width: 1200px;
+  min-width: 900px;
   margin-bottom: 1.2rem;
 
   section{
@@ -85,5 +86,9 @@
   }
   .div__number {
     @include div__number(1em)
+  }
+
+  @media only screen and (max-width: 1200px) {
+    width: 900px;
   }
 }

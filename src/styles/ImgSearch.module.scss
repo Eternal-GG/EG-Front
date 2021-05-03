@@ -1,9 +1,12 @@
 .img-box{
   background-image: url("../images/mainImg.jpg");
   height: 270px;
-  box-sizing: border-box;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 1200px) {
+    width: 1200px
+  }
 }

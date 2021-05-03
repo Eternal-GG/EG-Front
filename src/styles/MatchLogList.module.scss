@@ -6,9 +6,16 @@
   border: 1px solid lightgrey;
 }
 .div__title_log {
+  max-width: 1200px;
+  min-width: 900px;
   margin-bottom: 0.5em;
   background: $mainBrown;
   color: $mainWhite;
   padding: 0.7em;
   font-size: 0.9em;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 1200px) {
+    width: 900px;
+  }
 }

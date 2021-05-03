@@ -5,7 +5,8 @@ $topTwoThreeBlue : #68b1c2;
 .MatchLog {
   background: $mainWhite;
   box-sizing: border-box;
-  width: 100%;
+  max-width: 1200px;
+  min-width: 900px;
   border: 1px solid lightgrey;
   margin-bottom: 0.5em;
 
@@ -120,5 +121,9 @@ $topTwoThreeBlue : #68b1c2;
       background: $topTwoThreeBlue;
       color: $mainWhite;
     }
+  }
+
+  @media only screen and (max-width: 1200px){
+    width: 900px;
   }
 }

@@ -2,9 +2,9 @@
 
 .MatchProfileSimple {
   margin: 0 auto;
-  //background: $mainWhite;
   background-image: url('../images/simpleProfileBg.jpg');
-  width: 1200px;
+  max-width: 1200px;
+  min-width: 900px;
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
@@ -22,8 +22,8 @@
 
       span {
         border: solid $mainOrange;
-        border-width: 1px 0px;
-        padding: 6px 0px;
+        border-width: 1px 0;
+        padding: 6px 0;
         font-size: 13px;
       }
     }
@@ -111,6 +111,10 @@
           margin-right: 2px;
         }
       }
+    }
+
+    @media only screen and (max-width: 1200px) {
+      width: 900px;
     }
   }
 

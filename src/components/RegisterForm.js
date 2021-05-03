@@ -10,8 +10,7 @@ import {
     TEXT,
     PASSWORD,
     PASSWORD_CONFIRM,
-    NICKNAME,
-    // BS_NICKNAME,
+    NICKNAME
     } from "../utils/types";
 
 const cx = classNames.bind(styles);
@@ -19,7 +18,6 @@ const cx = classNames.bind(styles);
 function RegisterForm({
                           onEmailHandler,
                           onNicknameHandler,
-                          // onBsNicknameHandler,
                           onPasswordHandler,
                           onPasswordConfirmHandler,
                           onClickHandler,
@@ -53,13 +51,6 @@ function RegisterForm({
                     placeholder={"닉네임"}
                     inputHandler={onNicknameHandler}
                 />
-                {/*<InputItem*/}
-                {/*    type={TEXT}*/}
-                {/*    name={BS_NICKNAME}*/}
-                {/*    msg={MSG}*/}
-                {/*    placeholder={"블랙서바이벌 영원회귀 닉네임(선택)"}*/}
-                {/*    inputHandler={onBsNicknameHandler}*/}
-                {/*/>*/}
                 <InputItem
                     type={PASSWORD}
                     name={PASSWORD}
