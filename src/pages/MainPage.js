@@ -15,12 +15,14 @@ function MainPage({history}) {
     return(
         <>
             <Header history={history}/>
-            <ImgSearch onChangeHandler={onChangeHandler} onSearchHandler={onSearchHandler} />
-            <div style={{background: 'rgba(255, 208, 68, 0.2)', minHeight: '100vh', display:"flex", alignItems:'center', flexDirection:'column'}}>
-                <PatchCard />
+            <div style={{background: 'rgba(255, 208, 68, 0.2)', minWidth:1200, minHeight: '100vh'}}>
+                <ImgSearch onChangeHandler={onChangeHandler} onSearchHandler={onSearchHandler} />
+                <div style={{ display:"flex", alignItems:'center', flexDirection:'column'}}>
+                    <PatchCard />
+                </div>
             </div>
         </>
     );
-};
+}
 
-export default withRouter(MainPage);
+export default MainPage;
